@@ -44,13 +44,13 @@ footer{background:#713b2c;color:#fff2e8;padding:30px 0;margin-top:24px}.foot{dis
 <article class="card" data-category="Lain-lain"><div class="product-photo"><img src="images/choux-creampuff.jpg" alt="Choux Cream Puff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div><div class="card-body"><span class="tag">Lain-lain</span><h3>Choux Cream Puff</h3><p>Pastri berkrim; hubungi kami untuk pilihan dan ketersediaan.</p><div class="price">Harga: hubungi kami</div><a class="pill wa order" href="#" data-product="Choux Cream Puff">Tanya / Tempah</a></div></article>
 </div>
 </div></section>
-<section id="tempahan"><div class="wrap"><div class="notice"><div><h2>Jom buat tempahan! 💌</h2><p>Tekan WhatsApp dan beritahu produk yang anda minat. Kami akan bantu semak harga, tarikh dan cara pengambilan/penghantaran.</p><p><strong>WhatsApp:</strong> 019-316 0468</p></div><div class="notice-icon">🎀</div></div></div></section>
+<section id="tempahan"><div class="wrap"><div class="notice"><div><h2>Jom buat tempahan! 💌</h2><p>Tekan WhatsApp dan beritahu produk yang anda minat. Kami akan bantu semak harga, tarikh dan cara pengambilan/penghantaran.</p><p><strong>WhatsApp:</strong> 016-316 0468</p></div><div class="notice-icon">🎀</div></div></div></section>
 </main>
 <footer><div class="wrap foot"><div><strong>🍰 Kunyah-Kunyah by NaZ</strong><p>Manisnya setiap gigitan.</p></div><p>© <span id="year"></span> Kunyah-Kunyah by NaZ. Semua hak terpelihara.</p></div></footer>
 <a class="pill wa float-wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tanya%20tentang%20menu." target="_blank" rel="noopener">💬 WhatsApp</a>
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.card').forEach(card=>{card.style.display=btn.dataset.filter==='Semua'||card.dataset.category===btn.dataset.filter?'':'none'})}));
-document.querySelectorAll('.order').forEach(link=>{const product=link.dataset.product;const msg='Hi Kunyah-Kunyah by NaZ, saya berminat dengan '+product+'. Boleh kongsi harga dan maklumat tempahan?';link.href='https://wa.me/60193160468?text='+encodeURIComponent(msg);link.target='_blank';link.rel='noopener'});
+document.querySelectorAll('.order').forEach(link=>{const product=link.dataset.product;const msg='Hi Kunyah-Kunyah by NaZ, saya berminat dengan '+product+'. Boleh kongsi harga dan maklumat tempahan?';link.href='https://wa.me/60163160468?text='+encodeURIComponent(msg);link.target='_blank';link.rel='noopener'});
 </script>
 </body></html>
