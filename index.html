@@ -90,6 +90,45 @@ footer{background:#713b2c;color:#fff2e8;padding:30px 0;margin-top:24px}
 .hero h1{font-size:2.7rem}
 .pill{padding:11px 15px}
 }
+  
+.cheese-flavour {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 0;
+  border-bottom: 1px solid #f1e3d8;
+}
+.cheese-flavour label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+}
+.qty-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.qty-row button {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 50%;
+  background: #f4dfd2;
+  color: #713b2c;
+  font-size: 18px;
+  font-weight: bold;
+}
+.qty-row input {
+  width: 48px;
+  padding: 5px 2px;
+  text-align: center;
+  border: 1px solid #ead5c7;
+  border-radius: 8px;
+  font: inherit;
+}
+
 </style>
 </head>
 
@@ -163,21 +202,55 @@ footer{background:#713b2c;color:#fff2e8;padding:30px 0;margin-top:24px}
 </div>
 </article>
 
-<article class="card" data-category="Cheesekut">
-<div class="product-photo"><img src="mini.cheesekut.jpg" alt="Mini Cheesekut" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍰</span></div>
-<div class="card-body">
-<span class="tag">Cheesekut</span><h3>Mini Cheesekut</h3>
-<p>Saiz comel, sesuai untuk hadiah atau pencuci mulut.</p>
-<p class="price">RM2 / pcs</p>
-<div class="flavour-options">
-<p><strong>Pilih Flavour:</strong></p>
-<label><input type="checkbox" name="cheesekut-flavour" value="Oreo"> Oreo</label>
-<label><input type="checkbox" name="cheesekut-flavour" value="Biscoff"> Biscoff</label>
-<label><input type="checkbox" name="cheesekut-flavour" value="Nestum"> Nestum</label>
+
+<article class="card" data-category="Cheesekut" id="mini-cheesekut">
+<div class="product-photo">
+<img src="mini.cheesekut.jpg" alt="Mini Cheesekut" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+<span class="emoji" style="display:none">🍰</span>
 </div>
+<div class="card-body">
+<span class="tag">Cheesekut</span>
+<h3>Mini Cheesekut</h3>
+<p>Saiz comel, sesuai untuk hadiah atau pencuci mulut.</p>
+<p class="price">RM2.00 / pcs</p>
+
+<div class="flavour-options">
+<p><strong>Pilih flavour dan kuantiti:</strong></p>
+
+<div class="cheese-flavour">
+<label><input type="checkbox" class="cheese-check" value="Oreo"> Oreo</label>
+<div class="qty-row">
+<button type="button" class="qty-minus">−</button>
+<input class="cheese-qty" type="number" min="0" step="1" value="0" inputmode="numeric">
+<button type="button" class="qty-plus">+</button>
+</div>
+</div>
+
+<div class="cheese-flavour">
+<label><input type="checkbox" class="cheese-check" value="Biscoff"> Biscoff</label>
+<div class="qty-row">
+<button type="button" class="qty-minus">−</button>
+<input class="cheese-qty" type="number" min="0" step="1" value="0" inputmode="numeric">
+<button type="button" class="qty-plus">+</button>
+</div>
+</div>
+
+<div class="cheese-flavour">
+<label><input type="checkbox" class="cheese-check" value="Nestum"> Nestum</label>
+<div class="qty-row">
+<button type="button" class="qty-minus">−</button>
+<input class="cheese-qty" type="number" min="0" step="1" value="0" inputmode="numeric">
+<button type="button" class="qty-plus">+</button>
+</div>
+</div>
+</div>
+
+<p>Jumlah pcs: <strong id="cheese-total-qty">0</strong></p>
+<p class="price">Jumlah harga: <strong id="cheese-total-price">RM0.00</strong></p>
 <button class="add-cart" type="button">Add to Cart</button>
 </div>
 </article>
+
 
 <article class="card" data-category="Muffin">
 <div class="product-photo"><img src="muffin.jpg" alt="Muffin Kunyah-Kunyah by NaZ" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div>
@@ -279,55 +352,179 @@ document.querySelectorAll('.filter').forEach(btn=>{
 
 (function(){
   const cart=[];
+  // Kiraan kuantiti dan harga Mini Cheesekut
+(function(){
+  const card=document.getElementById('mini-cheesekut');
+  if(!card) return;
+
+  const rows=card.querySelectorAll('.cheese-flavour');
+  const totalQty=document.getElementById('cheese-total-qty');
+  const totalPrice=document.getElementById('cheese-total-price');
+
+  function updateTotal(){
+    let total=0;
+
+    rows.forEach(row=>{
+      const check=row.querySelector('.cheese-check');
+      const input=row.querySelector('.cheese-qty');
+      let qty=Math.max(0,parseInt(input.value,10)||0);
+
+      if(!Number.isFinite(qty)) qty=0;
+      input.value=qty;
+      check.checked=qty>0;
+      total+=qty;
+    });
+
+    totalQty.textContent=total;
+    totalPrice.textContent='RM'+(total*2).toFixed(2);
+  }
+
+  rows.forEach(row=>{
+    const input=row.querySelector('.cheese-qty');
+    const minus=row.querySelector('.qty-minus');
+    const plus=row.querySelector('.qty-plus');
+    const check=row.querySelector('.cheese-check');
+
+    plus.addEventListener('click',()=>{
+      input.value=(parseInt(input.value,10)||0)+1;
+      updateTotal();
+    });
+
+    minus.addEventListener('click',()=>{
+      input.value=Math.max(0,(parseInt(input.value,10)||0)-1);
+      updateTotal();
+    });
+
+    input.addEventListener('input',updateTotal);
+
+    check.addEventListener('change',()=>{
+      if(check.checked && (parseInt(input.value,10)||0)===0){
+        input.value=1;
+      } else if(!check.checked){
+        input.value=0;
+      }
+      updateTotal();
+    });
+  });
+
+  updateTotal();
+})();
   const cartCount=document.getElementById('naz-cart-count');
   const cartList=document.getElementById('naz-cart-list');
 
   function renderCart(){
-    cartCount.textContent=cart.length?cart.length+' pilihan produk dalam troli.':'Belum ada produk dalam troli.';
-    cartList.replaceChildren();
+  cartCount.textContent = cart.length
+    ? cart.length + ' pilihan produk dalam troli.'
+    : 'Belum ada produk dalam troli.';
 
-    cart.forEach((item,index)=>{
-      const li=document.createElement('li');
-      let text=item.name;
-      if(item.flavours.length) text+=' — Flavour: '+item.flavours.join(', ');
-      if(item.price) text+=' ('+item.price+')';
-      li.appendChild(document.createTextNode(text+' '));
+  cartList.replaceChildren();
 
-      const remove=document.createElement('button');
-      remove.type='button';
-      remove.className='cart-remove';
-      remove.textContent='Buang';
-      remove.addEventListener('click',()=>{
-        cart.splice(index,1);
-        renderCart();
-      });
-      li.appendChild(remove);
-      cartList.appendChild(li);
+  cart.forEach((item,index)=>{
+    const li = document.createElement('li');
+    let text = item.name;
+
+    if(item.flavours && item.flavours.length){
+      text += ' — Flavour: ' + item.flavours.join(', ');
+    }
+
+    if(item.qty){
+      text += ' — Jumlah: ' + item.qty + ' pcs';
+      text += ' — Harga: RM' + item.total.toFixed(2);
+    } else if(item.price){
+      text += ' (' + item.price + ')';
+    }
+
+    li.appendChild(document.createTextNode(text + ' '));
+
+    const remove = document.createElement('button');
+    remove.type = 'button';
+    remove.className = 'cart-remove';
+    remove.textContent = 'Buang';
+
+    remove.addEventListener('click',()=>{
+      cart.splice(index,1);
+      renderCart();
     });
-  }
+
+    li.appendChild(remove);
+    cartList.appendChild(li);
+  });
+}
 
   document.querySelectorAll('.add-cart').forEach(button=>{
-    button.addEventListener('click',()=>{
-      const card=button.closest('[data-category]');
-      const name=card.querySelector('h3').textContent.trim();
-      const priceElement=card.querySelector('.price');
-      const price=priceElement?priceElement.textContent.trim():'';
-      const flavourInputs=Array.from(card.querySelectorAll('.flavour-options input[type="checkbox"]'));
-      const flavours=flavourInputs.filter(input=>input.checked).map(input=>input.value);
+  button.addEventListener('click',()=>{
+    const card=button.closest('[data-category]');
+    const name=card.querySelector('h3').textContent.trim();
 
-      if(flavourInputs.length&&!flavours.length){
-        alert('Sila pilih sekurang-kurangnya satu flavour untuk '+name+' dahulu.');
+    // MINI CHEESEKUT: setiap flavour ada kuantiti sendiri
+    if(card.id==='mini-cheesekut'){
+      const rows=Array.from(card.querySelectorAll('.cheese-flavour'));
+
+      const selections=rows.map(row=>{
+        const input=row.querySelector('.cheese-qty');
+        const check=row.querySelector('.cheese-check');
+        const qty=Math.max(0,parseInt(input.value,10)||0);
+
+        return {
+          flavour:check.value,
+          qty:qty
+        };
+      }).filter(item=>item.qty>0);
+
+      if(!selections.length){
+        alert('Sila masukkan kuantiti Oreo, Biscoff atau Nestum dahulu.');
         return;
       }
 
-      cart.push({name,price,flavours});
+      const totalQty=selections.reduce((sum,item)=>sum+item.qty,0);
+      const totalPrice=totalQty*2;
+
+      cart.push({
+        name:name,
+        price:'RM2.00 / pcs',
+        flavours:selections.map(item=>item.flavour+' ('+item.qty+' pcs)'),
+        qty:totalQty,
+        total:totalPrice
+      });
+
       renderCart();
 
       const oldText=button.textContent;
       button.textContent='✓ Ditambah ke Troli';
       setTimeout(()=>button.textContent=oldText,1300);
+      return;
+    }
+
+    // PRODUK LAIN
+    const priceElement=card.querySelector('.price');
+    const price=priceElement?priceElement.textContent.trim():'';
+
+    const flavourInputs=Array.from(
+      card.querySelectorAll('.flavour-options input[type="checkbox"]')
+    );
+
+    const flavours=flavourInputs
+      .filter(input=>input.checked)
+      .map(input=>input.value);
+
+    if(flavourInputs.length&&!flavours.length){
+      alert('Sila pilih sekurang-kurangnya satu flavour untuk '+name+' dahulu.');
+      return;
+    }
+
+    cart.push({
+      name:name,
+      price:price,
+      flavours:flavours
     });
+
+    renderCart();
+
+    const oldText=button.textContent;
+    button.textContent='✓ Ditambah ke Troli';
+    setTimeout(()=>button.textContent=oldText,1300);
   });
+});
 
   document.getElementById('naz-order-now').addEventListener('click',()=>{
     if(!cart.length){
@@ -335,14 +532,30 @@ document.querySelectorAll('.filter').forEach(btn=>{
       return;
     }
 
-    let message='Hi Kunyah-Kunyah by NaZ! Saya nak buat pesanan:\n\n';
-    cart.forEach((item,index)=>{
-      message+=(index+1)+'. '+item.name+'\n';
-      if(item.flavours.length) message+='   Flavour: '+item.flavours.join(', ')+'\n';
-      if(item.price) message+='   Harga dipaparkan: '+item.price+'\n';
-      message+='\n';
-    });
-    message+='Mohon sahkan harga dan maklumat tempahan saya. Terima kasih!';
+    
+let message='Hi Kunyah-Kunyah by NaZ! Saya nak buat pesanan:\n\n';
+
+cart.forEach((item,index)=>{
+  message+=(index+1)+'. '+item.name+'\n';
+
+  if(item.qty){
+    message+='   Flavour dan kuantiti: '+item.flavours.join(', ')+'\n';
+    message+='   Jumlah: '+item.qty+' pcs\n';
+    message+='   Jumlah harga: RM'+item.total.toFixed(2)+'\n';
+  } else {
+    if(item.flavours && item.flavours.length){
+      message+='   Flavour: '+item.flavours.join(', ')+'\n';
+    }
+    if(item.price){
+      message+='   Harga dipaparkan: '+item.price+'\n';
+    }
+  }
+
+  message+='\n';
+});
+
+message+='Mohon sahkan harga dan maklumat tempahan saya. Terima kasih!';
+
 
     window.open('https://wa.me/60163160468?text='+encodeURIComponent(message),'_blank');
   });
