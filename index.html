@@ -1,572 +1,1097 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ms">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#fff3e6">
-<meta name="description" content="Kunyah-Kunyah by NaZ — kek dan pencuci mulut homemade.">
-<title>Kunyah-Kunyah by NaZ | Manisnya Setiap Gigitan</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fbf7ed">
+<title>Kunyah-Kunyah by NaZ</title>
 
 <style>
-:root{--cream:#fff8ef;--brown:#713b2c;--orange:#e98555;--green:#218653;--ink:#38271f;--muted:#7b665b}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
-a{color:inherit}
-.wrap{width:min(1100px,92%);margin:auto}
-header{position:sticky;top:0;z-index:5;background:rgba(255,248,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid #f0dfd2}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
-.brand{font-weight:900;color:var(--brown);font-size:1.15rem;text-decoration:none;line-height:1.1}
-.brand small{display:block;font-weight:600;font-size:.72rem;color:var(--orange);letter-spacing:.06em;margin-top:5px}
-.navlinks{display:flex;gap:18px;align-items:center}
-.navlinks a{text-decoration:none;font-weight:650;font-size:.92rem}
-.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 18px;font-weight:800;text-decoration:none;cursor:pointer}
-.wa{background:var(--green);color:#fff}
-.ghost{background:#fff;border:1px solid #f0d9c9;color:var(--brown)}
-.hero{padding:52px 0 40px}
-.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:36px}
-.eyebrow{display:inline-block;background:#ffe4cf;color:#8a4a2e;padding:7px 12px;border-radius:999px;font-size:.83rem;font-weight:800}
-.hero h1{font-size:clamp(2.4rem,5.5vw,4.7rem);line-height:1.02;letter-spacing:-.05em;color:var(--brown);margin:18px 0}
-.hero p{font-size:1.08rem;color:var(--muted);max-width:520px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.hero-art{min-height:350px;border-radius:32px;overflow:hidden;background:linear-gradient(140deg,#ffe6bd,#f9cbd0 60%,#f6b98f);display:flex;align-items:center;justify-content:center;padding:18px;position:relative}
-.hero-art img{width:100%;height:340px;object-fit:cover;border-radius:24px}
-.photo-fallback{display:none;text-align:center;font-size:5rem}
-.hero-art.no-photo img{display:none}
-.hero-art.no-photo .photo-fallback{display:block}
-section{padding:34px 0 48px}
-.section-head{margin-bottom:22px}
-.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.1;color:var(--brown);margin:0}
-.section-head p{color:var(--muted);margin:8px 0 0}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.filter{border:1px solid #ead5c7;background:#fff;color:var(--brown);border-radius:999px;padding:9px 15px;font-weight:750;cursor:pointer}
-.filter.active{background:var(--brown);color:#fff;border-color:var(--brown)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card,.product-card{background:#fff;border:1px solid #f1e3d8;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px #78401a0b}
-.product-photo{height:220px;background:linear-gradient(135deg,#ffe7c7,#f8cbd1);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.product-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.emoji{font-size:4.5rem}
-.card-body,.product-info{padding:17px}
-.tag,.product-category{display:inline-block;background:#fff0e2;color:#98532e;border-radius:8px;padding:4px 8px;font-size:.75rem;font-weight:800}
-.card h3,.product-card h3{margin:10px 0 5px;color:var(--brown);font-size:1.18rem}
-.card p,.product-card p{margin:0 0 14px;color:var(--muted);font-size:.92rem}
-.price{font-weight:850;color:#a45a37;margin-bottom:14px}
-.flavour-options{margin:10px 0 14px;padding:12px;background:#fff8ef;border-radius:12px}
-.flavour-options p{margin:0 0 8px!important}
-.flavour-options label{display:inline-flex;align-items:center;gap:6px;margin:4px 10px 4px 0;font-size:.92rem}
-.flavour-options input{accent-color:var(--green)}
-.add-cart{display:block;width:100%;margin-top:12px;padding:12px 20px;border:0;border-radius:30px;background:var(--green);color:white;font-size:16px;font-weight:800;cursor:pointer}
-#naz-cart{margin:24px auto 40px;padding:20px;background:#fff8ef;border:1px solid #ead8c8;border-radius:20px;color:#51372c}
-#naz-cart h2{margin-top:0;color:var(--brown)}
-#naz-cart-list{padding-left:22px}
-#naz-cart-list li{margin:10px 0}
-.cart-action{display:block;width:100%;border:0;border-radius:30px;padding:14px;margin-top:10px;font-size:16px;font-weight:bold;cursor:pointer}
-#naz-order-now{background:var(--green);color:white}
-#naz-clear-cart{background:#eee2d8;color:#51372c}
-.cart-remove{border:0;background:#f4dfd2;color:#713b2c;border-radius:20px;padding:5px 10px;margin-left:8px;font-weight:700;cursor:pointer}
-.notice{background:#ffebd8;border-radius:26px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.notice h2{margin:0;color:var(--brown);font-size:1.8rem}
-.notice p{margin:8px 0 0;color:#775547}
-.notice-icon{font-size:3rem}
-footer{background:#713b2c;color:#fff2e8;padding:30px 0;margin-top:24px}
-.foot{display:flex;justify-content:space-between;gap:18px;align-items:center}
-.foot p{margin:5px 0;color:#f3d9cb;font-size:.9rem}
-.float-wa{position:fixed;right:18px;bottom:18px;z-index:6;box-shadow:0 8px 25px #0002}
-@media(max-width:760px){
-.navlinks a:not(.pill){display:none}
-.hero{padding-top:30px}
-.hero-grid{grid-template-columns:1fr;gap:22px}
-.hero-art{min-height:240px}
-.hero-art img{height:250px}
-.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.product-photo{height:160px}
-.card-body,.product-info{padding:13px}
-.notice{align-items:flex-start;padding:22px}
-.foot{align-items:flex-start;flex-direction:column}
+:root {
+  --cream: #fbf7ed;
+  --cream-dark: #f2e9d9;
+  --brown: #503329;
+  --caramel: #a96543;
+  --green: #218653;
+  --green-dark: #176b40;
+  --white: #ffffff;
+  --border: #e8ddcf;
 }
-@media(max-width:420px){
-.grid{grid-template-columns:1fr}
-.product-photo{height:220px}
-.hero h1{font-size:2.7rem}
-.pill{padding:11px 15px}
+
+* {
+  box-sizing: border-box;
 }
-  
-.cheese-flavour {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  padding: 9px 0;
-  border-bottom: 1px solid #f1e3d8;
+
+html {
+  scroll-behavior: smooth;
 }
-.cheese-flavour label {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+
+body {
   margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
 }
-.qty-row {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.qty-row button {
-  width: 30px;
-  height: 30px;
-  border: 0;
-  border-radius: 50%;
-  background: #f4dfd2;
-  color: #713b2c;
-  font-size: 18px;
-  font-weight: bold;
-}
-.qty-row input {
-  width: 48px;
-  padding: 5px 2px;
-  text-align: center;
-  border: 1px solid #ead5c7;
-  border-radius: 8px;
+
+button, input, select, textarea {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.brand {
+  min-width: 0;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: clamp(21px, 3vw, 32px);
+  line-height: 1.2;
+  color: var(--brown);
+}
+
+.brand p {
+  margin: 8px 0 0;
+  color: #d98662;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.header-whatsapp {
+  flex-shrink: 0;
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  padding: 13px 22px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 40px;
+}
+
+.header-whatsapp:hover,
+.primary-button:hover,
+.add-cart:hover {
+  background: var(--green-dark);
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px 20px 45px;
+}
+
+.hero {
+  margin-bottom: 30px;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  max-height: 430px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.hero-fallback {
+  display: none;
+  padding: 42px 18px;
+  text-align: center;
+  background: var(--cream-dark);
+  border-radius: 14px;
+}
+
+.hero h2 {
+  font-size: clamp(25px, 4vw, 38px);
+  margin: 20px 0 5px;
+}
+
+.hero p {
+  margin: 0;
+}
+
+.section-heading {
+  margin: 28px 0 18px;
+  font-size: 27px;
+}
+
+.filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.filter-button {
+  background: var(--cream-dark);
+  color: var(--brown);
+  border: 1px solid var(--border);
+  padding: 9px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+.filter-button.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: white;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.card {
+  min-width: 0;
+  overflow: hidden;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.product-photo {
+  width: 100%;
+  aspect-ratio: 1.4 / 1;
+  overflow: hidden;
+  background: var(--cream-dark);
+}
+
+.product-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 65px;
+}
+
+.card-body {
+  padding: 18px;
+}
+
+.tag {
+  display: inline-block;
+  color: var(--caramel);
+  background: var(--cream-dark);
+  border-radius: 30px;
+  padding: 4px 11px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card h3 {
+  margin: 12px 0;
+  font-size: 23px;
+  line-height: 1.3;
+}
+
+.card p {
+  margin: 10px 0 16px;
+}
+
+.price {
+  margin: 12px 0 17px;
+  color: var(--caramel);
+  font-size: 19px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  margin: 13px 0 6px;
+  font-weight: bold;
+}
+
+select,
+input[type="number"],
+input[type="text"],
+textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid #d9ccbd;
+  border-radius: 9px;
+  background: #fffdf9;
+  color: var(--brown);
+}
+
+input[type="checkbox"] {
+  accent-color: var(--green);
+  width: 19px;
+  height: 19px;
+  vertical-align: middle;
+}
+
+.flavour-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.flavour-row label {
+  margin: 0;
+  font-weight: normal;
+}
+
+.flavour-row input[type="number"] {
+  width: 85px;
+  margin-left: auto;
+}
+
+.add-cart,
+.primary-button,
+.secondary-button {
+  border: none;
+  border-radius: 40px;
+  padding: 13px 18px;
+  font-weight: bold;
+}
+
+.add-cart,
+.primary-button {
+  background: var(--green);
+  color: white;
+}
+
+.add-cart {
+  width: 100%;
+  margin-top: 5px;
+}
+
+.cart-section {
+  margin-top: 42px;
+  padding: 23px;
+  background: #fffdf8;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.cart-section h2 {
+  margin-top: 0;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-item-details {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.cart-item-details strong {
+  display: block;
+}
+
+.cart-item-details small {
+  display: block;
+  color: #806c60;
+}
+
+.remove-button {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background: #eee4d8;
+  color: var(--brown);
+}
+
+.cart-total {
+  text-align: right;
+  margin: 22px 0;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.cart-note {
+  color: var(--caramel);
+  font-size: 14px;
+}
+
+.cart-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px;
+}
+
+.secondary-button {
+  background: var(--cream-dark);
+  color: var(--brown);
+}
+
+.empty-cart {
+  padding: 12px 0;
+  color: #806c60;
+}
+
+footer {
+  padding: 25px 18px;
+  text-align: center;
+  background: var(--cream-dark);
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: var(--green-dark);
+  font-weight: bold;
+}
+
+.floating-whatsapp {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  z-index: 30;
+  padding: 13px 20px;
+  border-radius: 40px;
+  background: var(--green);
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 15px #00000020;
+}
+
+@media (min-width: 800px) {
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    padding: 16px 14px;
+    gap: 10px;
+  }
+
+  .brand h1 {
+    font-size: 22px;
+  }
+
+  .brand p {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+
+  .header-whatsapp {
+    padding: 11px 13px;
+    font-size: 13px;
+  }
+
+  main {
+    padding: 16px 14px 35px;
+  }
+
+  .products {
+    gap: 13px;
+  }
+
+  .product-photo {
+    aspect-ratio: 1 / 1;
+  }
+
+  .card-body {
+    padding: 12px;
+  }
+
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .card select,
+  .card input[type="number"],
+  .card input[type="text"] {
+    font-size: 13px;
+    padding: 9px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .filters {
+    gap: 7px;
+  }
+
+  .filter-button {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .cart-section {
+    padding: 15px;
+  }
+
+  .cart-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-whatsapp {
+    right: 12px;
+    bottom: 12px;
+  }
+}
 </style>
 </head>
 
 <body>
-<header>
-<div class="wrap nav">
-<a class="brand" href="#">🍰 Kunyah-Kunyah by NaZ<small>MANISNYA SETIAP GIGITAN</small></a>
-<nav class="navlinks">
-<a href="#menu">Menu</a>
-<a href="#tempahan">Cara Tempah</a>
-<a class="pill wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tanya%20tentang%20menu." target="_blank" rel="noopener">WhatsApp kami</a>
-</nav>
-</div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <h1>🍰 Kunyah-Kunyah by NaZ</h1>
+      <p>MANISNYA SETIAP GIGITAN</p>
+    </div>
+    <a class="header-whatsapp"
+       href="https://wa.me/60163160468"
+       target="_blank" rel="noopener">
+      WhatsApp kami
+    </a>
+  </div>
 </header>
 
 <main>
-<div class="wrap hero">
-<div class="hero-grid">
-<div>
-<span class="eyebrow">Homemade dengan penuh kasih sayang ♡</span>
-<h1>Maniskan<br>hari anda!</h1>
-<p>Singgah tengok pilihan kek dan pencuci mulut Kunyah-Kunyah by NaZ. Pilih menu kegemaran dan hubungi kami untuk semak harga serta tempahan.</p>
-<div class="hero-actions">
-<a class="pill wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20buat%20tempahan." target="_blank" rel="noopener">💬 Tempah di WhatsApp</a>
-<a class="pill ghost" href="#menu">Lihat menu ↓</a>
-</div>
-</div>
-<div class="hero-art no-photo" id="heroArt">
-<img src="hero.PNG" alt="Pilihan pencuci mulut Kunyah-Kunyah by NaZ" onload="this.parentElement.classList.remove('no-photo')" onerror="this.style.display='none'">
-<div class="photo-fallback">🧁 🍰 🍫</div>
-</div>
-</div>
-</div>
+  <section class="hero">
+    <img src="hero.PNG" alt="Kunyah-Kunyah by NaZ"
+         onerror="this.style.display='none';document.getElementById('hero-fallback').style.display='block'">
+    <div class="hero-fallback" id="hero-fallback">
+      <h2>Selamat Datang ke Kunyah-Kunyah by NaZ</h2>
+      <p>Manisnya setiap gigitan ❤️</p>
+    </div>
+  </section>
 
-<section id="menu">
-<div class="wrap">
-<div class="section-head">
-<h2>Menu pilihan kami</h2>
-<p>Harga akan dikemaskini. Tanya kami untuk harga terkini dan ketersediaan.</p>
-</div>
+  <h2 class="section-heading" id="menu">Menu Kami</h2>
+  <p>Pilih produk dan kuantiti yang anda inginkan. Tambahkan ke cart untuk membuat pesanan.</p>
 
-<div class="filters" aria-label="Tapis kategori">
-<button class="filter active" data-filter="Semua">Semua</button>
-<button class="filter" data-filter="Kek">Kek</button>
-<button class="filter" data-filter="Brownies">Brownies</button>
-<button class="filter" data-filter="Cheesecake">Cheesecake</button>
-<button class="filter" data-filter="Lain-lain">Lain-lain</button>
-<button class="filter" data-filter="Muffin">Muffin</button>
-<button class="filter" data-filter="Cheesekut">Cheesekut</button>
-</div>
+  <div class="filters" aria-label="Kategori produk">
+    <button class="filter-button active" data-filter="Semua">Semua</button>
+    <button class="filter-button" data-filter="Kek">Kek</button>
+    <button class="filter-button" data-filter="Brownies">Brownies</button>
+    <button class="filter-button" data-filter="Cheesekut">Cheesekut</button>
+    <button class="filter-button" data-filter="Muffin">Muffin</button>
+    <button class="filter-button" data-filter="Hokkaido">Hokkaido Muffin</button>
+    <button class="filter-button" data-filter="Cheesecake">Cheesecake</button>
+    <button class="filter-button" data-filter="Cream Puff">Cream Puff</button>
+  </div>
 
-<div class="grid">
+  <section class="products" id="products">
 
-<article class="card" data-category="Kek">
-<div class="product-photo"><img src="kek-pisang.JPG" alt="Kek Pisang" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍌</span></div>
-<div class="card-body">
-<span class="tag">Kek</span><h3>Kek Pisang</h3>
-<p>Kek pisang homemade yang sesuai untuk minum petang.</p>
-<div class="price">Harga: hubungi kami</div>
-<button class="add-cart" type="button">Add to Cart</button>
-</div>
-</article>
+    <article class="card" data-category="Kek">
+      <div class="product-photo">
+        <img src="kek-pisang.JPG" alt="Kek Pisang"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="photo-fallback">🍌</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Kek</span>
+        <h3>Kek Pisang</h3>
+        <p>Kek pisang homemade yang sesuai untuk minum petang.</p>
+        <div class="price">Harga: Sila tanya</div>
+        <label>Kuantiti</label>
+        <input class="quantity" type="number" min="1" value="1">
+        <button class="add-cart" type="button">Tambah ke Cart</button>
+      </div>
+    </article>
 
-<article class="card" data-category="Brownies">
-<div class="product-photo"><img src="brownies.JPG" alt="Brownies" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍫</span></div>
-<div class="card-body">
-<span class="tag">Brownies</span><h3>Brownies</h3>
-<p>Manisan coklat untuk dikongsi bersama keluarga dan kawan.</p>
-<div class="price">Harga: hubungi kami</div>
-<button class="add-cart" type="button">Add to Cart</button>
-</div>
-</article>
+    <article class="card" data-category="Brownies">
+      <div class="product-photo">
+        <img src="brownies.JPG" alt="Brownies"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="photo-fallback">🍫</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Brownies</span>
+        <h3>Brownies 8×8 Inch</h3>
+        <p>36 pcs setiap kotak. Pilih flavour pilihan anda.</p>
+        <label>Flavour</label>
+        <select class="variant">
+          <option value="Plain" data-price="35">Plain — RM35</option>
+          <option value="Hazelnut / Biscoff Spread (Can Mix)" data-price="44">Hazelnut / Biscoff Spread (Can Mix) — RM44</option>
+          <option value="Hazelnut Spread + Nuts" data-price="50">Hazelnut Spread + Nuts — RM50</option>
+          <option value="Hazelnut Spread + Biscoff Crumb" data-price="50">Hazelnut Spread + Biscoff Crumb — RM50</option>
+          <option value="Biscoff Spread + Nuts" data-price="50">Biscoff Spread + Nuts — RM50</option>
+          <option value="Biscoff Spread + Biscoff Crumb" data-price="50">Biscoff Spread + Biscoff Crumb — RM50</option>
+          <option value="Cadbury" data-price="60">Cadbury — RM60</option>
+          <option value="KitKat" data-price="60">KitKat — RM60</option>
+          <option value="Oreo Crumb" data-price="47">Oreo Crumb — RM47</option>
+          <option value="Mix Flavour (4 Flavours)" data-price="58">Mix Flavour (4 Flavours) — RM58</option>
+        </select>
+        <label>Kuantiti kotak</label>
+        <input class="quantity" type="number" min="1" value="1">
+        <div class="price"></div>
+        <button class="add-cart" type="button">Tambah ke Cart</button>
+      </div>
+    </article>
 
+    <article class="card" data-category="Cheesekut">
+      <div class="product-photo">
+        <img src="mini.cheesekut.jpg" alt="Mini Cheesekut"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="photo-fallback">🧀</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Cheesekut</span>
+        <h3>Mini Cheesekut</h3>
+        <p>RM2 sebiji. Pilih kuantiti bagi setiap flavour.</p>
 
-<article class="card" data-category="Cheesekut" id="mini-cheesekut">
-<div class="product-photo">
-<img src="mini.cheesekut.jpg" alt="Mini Cheesekut" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-<span class="emoji" style="display:none">🍰</span>
-</div>
-<div class="card-body">
-<span class="tag">Cheesekut</span>
-<h3>Mini Cheesekut</h3>
-<p>Saiz comel, sesuai untuk hadiah atau pencuci mulut.</p>
-<p class="price">RM2.00 / pcs</p>
+        <label>Oreo — RM2 / pcs</label>
+        <input class="flavour-qty" type="number" min="0" value="0"
+               data-flavour="Oreo" data-price="2">
 
-<div class="flavour-options">
-<p><strong>Pilih flavour dan kuantiti:</strong></p>
+        <label>Biscoff — RM2 / pcs</label>
+        <input class="flavour-qty" type="number" min="0" value="0"
+               data-flavour="Biscoff" data-price="2">
 
-<div class="cheese-flavour">
-<label><input type="checkbox" class="cheese-check" value="Oreo"> Oreo</label>
-<div class="qty-row">
-<button type="button" class="qty-minus">−</button>
-<input class="cheese-qty" type="number" min="0" step="1" value="0" inputmode="numeric">
-<button type="button" class="qty-plus">+</button>
-</div>
-</div>
+        <label>Nestum — RM2 / pcs</label>
+        <input class="flavour-qty" type="number" min="0" value="0"
+               data-flavour="Nestum" data-price="2">
 
-<div class="cheese-flavour">
-<label><input type="checkbox" class="cheese-check" value="Biscoff"> Biscoff</label>
-<div class="qty-row">
-<button type="button" class="qty-minus">−</button>
-<input class="cheese-qty" type="number" min="0" step="1" value="0" inputmode="numeric">
-<button type="button" class="qty-plus">+</button>
-</div>
-</div>
+        <div class="price">RM2 sebiji</div>
+        <button class="add-cart" type="button">Tambah ke Cart</button>
+      </div>
+    </article>
 
-<div class="cheese-flavour">
-<label><input type="checkbox" class="cheese-check" value="Nestum"> Nestum</label>
-<div class="qty-row">
-<button type="button" class="qty-minus">−</button>
-<input class="cheese-qty" type="number" min="0" step="1" value="0" inputmode="numeric">
-<button type="button" class="qty-plus">+</button>
-</div>
-</div>
-</div>
+    <article class="card" data-category="Muffin">
+      <div class="product-photo">
+        <img src="muffin.jpg" alt="Muffin"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="photo-fallback">🧁</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Muffin</span>
+        <h3>Muffin</h3>
+        <p>Muffin lembut dan gebu, sesuai dinikmati bersama keluarga atau sebagai kudapan.</p>
+        <div class="price">Harga: Sila tanya</div>
+        <label>Pilih flavour:</label>
+        <div class="flavour-row">
+          <input type="checkbox" class="muffin-flavour" value="Pisang" id="muffin-pisang">
+          <label for="muffin-pisang">Pisang</label>
+        </div>
+        <div class="flavour-row">
+          <input type="checkbox" class="muffin-flavour" value="Pisang Chocolate" id="muffin-pisang-choc">
+          <label for="muffin-pisang-choc">Pisang Chocolate</label>
+        </div>
+        <div class="flavour-row">
+          <input type="checkbox" class="muffin-flavour" value="Chocolate" id="muffin-choc">
+          <label for="muffin-choc">Chocolate</label>
+        </div>
+        <label>Kuantiti</label>
+        <input class="quantity" type="number" min="1" value="1">
+        <button class="add-cart" type="button">Tambah ke Cart</button>
+      </div>
+    </article>
 
-<p>Jumlah pcs: <strong id="cheese-total-qty">0</strong></p>
-<p class="price">Jumlah harga: <strong id="cheese-total-price">RM0.00</strong></p>
-<button class="add-cart" type="button">Add to Cart</button>
-</div>
-</article>
+    <article class="card" data-category="Hokkaido">
+      <div class="product-photo">
+        <img src="hokkaido-muffin.JPG" alt="Hokkaido Muffin"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="photo-fallback">🧁</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Hokkaido Muffin</span>
+        <h3>Hokkaido Muffin</h3>
+        <p>Pilih set yang sesuai dengan keperluan anda.</p>
+        <label>Pilihan set</label>
+        <select class="variant">
+          <option value="Set Mini — 7 pcs" data-price="12" data-pieces="7">Set Mini — 7 pcs (RM12)</option>
+          <option value="Set Regular — 16 pcs" data-price="25" data-pieces="16">Set Regular — 16 pcs (RM25)</option>
+          <option value="Set Family — 25 pcs" data-price="38" data-pieces="25">Set Family — 25 pcs (RM38)</option>
+          <option value="Set Party — 50 pcs" data-price="77" data-pieces="50">Set Party — 50 pcs (RM77)</option>
+          <option value="Set Celebration — 75 pcs" data-price="116" data-pieces="75">Set Celebration — 75 pcs (RM116)</option>
+          <option value="Set Grand — 100 pcs" data-price="150" data-pieces="100">Set Grand — 100 pcs (RM150)</option>
+        </select>
+        <label>Kuantiti set</label>
+        <input class="quantity" type="number" min="1" value="1">
+        <div class="price"></div>
+        <button class="add-cart" type="button">Tambah ke Cart</button>
+      </div>
+    </article>
 
+    <article class="card" data-category="Cheesecake">
+      <div class="product-photo">
+        <img src="cheesecake.JPG" alt="Cheesecake"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="photo-fallback">🍰</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Cheesecake</span>
+        <h3>Cheesecake</h3>
+        <p>Cheesecake homemade. Hubungi kami untuk pilihan dan harga.</p>
+        <label>Flavour / catatan</label>
+        <input class="variant" type="text" placeholder="Contoh: Original">
+        <label>Kuantiti</label>
+        <input class="quantity" type="number" min="1" value="1">
+        <div class="price">Harga: Sila tanya</div>
+        <button class="add-cart" type="button">Tambah ke Cart</button>
+      </div>
+    </article>
 
-<article class="card" data-category="Muffin">
-<div class="product-photo"><img src="muffin.jpg" alt="Muffin Kunyah-Kunyah by NaZ" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div>
-<div class="card-body">
-<span class="tag">Muffin</span><h3>Muffin</h3>
-<p>Muffin lembut dan gebu, sesuai dinikmati bersama keluarga atau sebagai kudapan.</p>
-<p class="price">Harga: Sila tanya</p>
-<div class="flavour-options">
-<p><strong>Pilih Flavour:</strong></p>
-<label><input type="checkbox" name="muffin-flavour" value="Pisang"> Pisang</label>
-<label><input type="checkbox" name="muffin-flavour" value="Pisang Chocolate"> Pisang Chocolate</label>
-<label><input type="checkbox" name="muffin-flavour" value="Chocolate"> Chocolate</label>
-</div>
-<button class="add-cart" type="button">Add to Cart</button>
-</div>
-</article>
+    <article class="card" data-category="Cream Puff">
+      <div class="product-photo">
+        <img src="creampuff.JPG" alt="Cream Puff"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="photo-fallback">🍮</span>
+      </div>
+      <div class="card-body">
+        <span class="tag">Cream Puff</span>
+        <h3>Cream Puff</h3>
+        <p>Pilih pek dan kuantiti yang anda mahu.</p>
+        <label>Pilihan pek</label>
+        <select class="variant">
+          <option value="15 biji" data-price="10" data-pieces="15">15 biji — RM10</option>
+          <option value="25 biji" data-price="16" data-pieces="25">25 biji — RM16</option>
+          <option value="50 biji" data-price="31" data-pieces="50">50 biji — RM31</option>
+        </select>
+        <label>Kuantiti pek</label>
+        <input class="quantity" type="number" min="1" value="1">
+        <div class="price"></div>
+        <button class="add-cart" type="button">Tambah ke Cart</button>
+      </div>
+    </article>
 
-<article class="card" data-category="Muffin">
-<div class="product-photo"><img src="hokkaido-muffin.JPG" alt="Hokkaido Muffin Kunyah-Kunyah by NaZ" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div>
-<div class="card-body">
-<span class="tag">Muffin</span><h3>Hokkaido Muffin</h3>
-<p>Hokkaido Muffin yang lembut dan gebu, dihiasi krim yang menyelerakan. Sesuai untuk minum petang dan dinikmati bersama keluarga.</p>
-<div class="price">Harga: Sila tanya</div>
-<button class="add-cart" type="button">Add to Cart</button>
-</div>
-</article>
+  </section>
 
-<article class="card" data-category="Cheesecake">
-<div class="product-photo"><img src="cheesecake.JPG" alt="Cheesecake" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍰</span></div>
-<div class="card-body">
-<span class="tag">Cheesecake</span><h3>Cheesecake</h3>
-<p>Cheesecake homemade yang lembut dan berkrim.</p>
-<div class="price">Harga: hubungi kami</div>
-<button class="add-cart" type="button">Add to Cart</button>
-</div>
-</article>
-
-<article class="card" data-category="Lain-lain">
-<div class="product-photo"><img src="creampuff.JPG" alt="Cream Puff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div>
-<div class="card-body">
-<span class="tag">Lain-lain</span><h3>Cream Puff</h3>
-<p>Pastri berkrim; hubungi kami untuk pilihan dan ketersediaan.</p>
-<div class="price">Harga: hubungi kami</div>
-<button class="add-cart" type="button">Add to Cart</button>
-</div>
-</article>
-
-</div>
-</div>
-</section>
-
-<section id="tempahan">
-<div class="wrap">
-<div class="notice">
-<div>
-<h2>Jom buat tempahan! 💌</h2>
-<p>Tambah produk ke troli, kemudian tekan Order Now untuk menghantar senarai pesanan melalui WhatsApp.</p>
-<p><strong>WhatsApp:</strong> 016-316 0468</p>
-</div>
-<div class="notice-icon">🎀</div>
-</div>
-</div>
-</section>
-
-<section aria-label="Troli pesanan">
-<div class="wrap">
-<div id="naz-cart">
-<h2>🛒 Troli Pesanan</h2>
-<p id="naz-cart-count" aria-live="polite">Belum ada produk dalam troli.</p>
-<ul id="naz-cart-list"></ul>
-<button id="naz-order-now" class="cart-action" type="button">Order Now — WhatsApp</button>
-<button id="naz-clear-cart" class="cart-action" type="button">Kosongkan Troli</button>
-</div>
-</div>
-</section>
+  <section class="cart-section" id="cart">
+    <h2>🛒 Cart Anda (<span id="cart-count">0</span>)</h2>
+    <div id="cart-items">
+      <p class="empty-cart">Cart anda masih kosong.</p>
+    </div>
+    <p id="cart-pieces"></p>
+    <div class="cart-total">
+      Jumlah: <span id="cart-total">RM0.00</span>
+    </div>
+    <p class="cart-note" id="cart-note"></p>
+    <div class="cart-actions">
+      <button class="secondary-button" id="clear-cart" type="button">
+        Kosongkan Cart
+      </button>
+      <button class="primary-button" id="order-whatsapp" type="button">
+        Order melalui WhatsApp
+      </button>
+    </div>
+  </section>
 </main>
 
 <footer>
-<div class="wrap foot">
-<div><strong>🍰 Kunyah-Kunyah by NaZ</strong><p>Manisnya setiap gigitan.</p></div>
-<p>© <span id="year"></span> Kunyah-Kunyah by NaZ. Semua hak terpelihara.</p>
-</div>
+  <strong>Kunyah-Kunyah by NaZ</strong>
+  <p>Manisnya setiap gigitan ❤️</p>
+  <a href="https://wa.me/60163160468" target="_blank" rel="noopener">
+    Hubungi kami melalui WhatsApp
+  </a>
 </footer>
 
-<a class="pill wa float-wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tanya%20tentang%20menu." target="_blank" rel="noopener">💬 WhatsApp</a>
+<a class="floating-whatsapp"
+   href="https://wa.me/60163160468"
+   target="_blank" rel="noopener">
+  💬 WhatsApp
+</a>
 
 <script>
-document.getElementById('year').textContent=new Date().getFullYear();
+"use strict";
 
-document.querySelectorAll('.filter').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.grid > [data-category]').forEach(card=>{
-      card.style.display=(btn.dataset.filter==='Semua'||card.dataset.category===btn.dataset.filter)?'':'none';
-    });
-  });
-});
+const WHATSAPP_NUMBER = "60163160468";
+const CART_KEY = "kunyahkunyah_cart_v3";
 
-(function(){
-  const cart=[];
-  // Kiraan kuantiti dan harga Mini Cheesekut
-(function(){
-  const card=document.getElementById('mini-cheesekut');
-  if(!card) return;
+let cart = [];
 
-  const rows=card.querySelectorAll('.cheese-flavour');
-  const totalQty=document.getElementById('cheese-total-qty');
-  const totalPrice=document.getElementById('cheese-total-price');
-
-  function updateTotal(){
-    let total=0;
-
-    rows.forEach(row=>{
-      const check=row.querySelector('.cheese-check');
-      const input=row.querySelector('.cheese-qty');
-      let qty=Math.max(0,parseInt(input.value,10)||0);
-
-      if(!Number.isFinite(qty)) qty=0;
-      input.value=qty;
-      check.checked=qty>0;
-      total+=qty;
-    });
-
-    totalQty.textContent=total;
-    totalPrice.textContent='RM'+(total*2).toFixed(2);
-  }
-
-  rows.forEach(row=>{
-    const input=row.querySelector('.cheese-qty');
-    const minus=row.querySelector('.qty-minus');
-    const plus=row.querySelector('.qty-plus');
-    const check=row.querySelector('.cheese-check');
-
-    plus.addEventListener('click',()=>{
-      input.value=(parseInt(input.value,10)||0)+1;
-      updateTotal();
-    });
-
-    minus.addEventListener('click',()=>{
-      input.value=Math.max(0,(parseInt(input.value,10)||0)-1);
-      updateTotal();
-    });
-
-    input.addEventListener('input',updateTotal);
-
-    check.addEventListener('change',()=>{
-      if(check.checked && (parseInt(input.value,10)||0)===0){
-        input.value=1;
-      } else if(!check.checked){
-        input.value=0;
-      }
-      updateTotal();
-    });
-  });
-
-  updateTotal();
-})();
-  const cartCount=document.getElementById('naz-cart-count');
-  const cartList=document.getElementById('naz-cart-list');
-
-  function renderCart(){
-  cartCount.textContent = cart.length
-    ? cart.length + ' pilihan produk dalam troli.'
-    : 'Belum ada produk dalam troli.';
-
-  cartList.replaceChildren();
-
-  cart.forEach((item,index)=>{
-    const li = document.createElement('li');
-    let text = item.name;
-
-    if(item.flavours && item.flavours.length){
-      text += ' — Flavour: ' + item.flavours.join(', ');
-    }
-
-    if(item.qty){
-      text += ' — Jumlah: ' + item.qty + ' pcs';
-      text += ' — Harga: RM' + item.total.toFixed(2);
-    } else if(item.price){
-      text += ' (' + item.price + ')';
-    }
-
-    li.appendChild(document.createTextNode(text + ' '));
-
-    const remove = document.createElement('button');
-    remove.type = 'button';
-    remove.className = 'cart-remove';
-    remove.textContent = 'Buang';
-
-    remove.addEventListener('click',()=>{
-      cart.splice(index,1);
-      renderCart();
-    });
-
-    li.appendChild(remove);
-    cartList.appendChild(li);
-  });
+try {
+  const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+  if (Array.isArray(saved)) cart = saved;
+} catch (error) {
+  cart = [];
 }
 
-  document.querySelectorAll('.add-cart').forEach(button=>{
-  button.addEventListener('click',()=>{
-    const card=button.closest('[data-category]');
-    const name=card.querySelector('h3').textContent.trim();
+function money(amount) {
+  return "RM" + Number(amount).toFixed(2);
+}
 
-    // MINI CHEESEKUT: setiap flavour ada kuantiti sendiri
-    if(card.id==='mini-cheesekut'){
-      const rows=Array.from(card.querySelectorAll('.cheese-flavour'));
+function getQuantity(card) {
+  const input = card.querySelector(".quantity");
+  return Math.max(1, parseInt(input?.value || "1", 10) || 1);
+}
 
-      const selections=rows.map(row=>{
-        const input=row.querySelector('.cheese-qty');
-        const check=row.querySelector('.cheese-check');
-        const qty=Math.max(0,parseInt(input.value,10)||0);
+function getVariant(card) {
+  const field = card.querySelector(".variant");
 
-        return {
-          flavour:check.value,
-          qty:qty
-        };
-      }).filter(item=>item.qty>0);
-
-      if(!selections.length){
-        alert('Sila masukkan kuantiti Oreo, Biscoff atau Nestum dahulu.');
-        return;
-      }
-
-      const totalQty=selections.reduce((sum,item)=>sum+item.qty,0);
-      const totalPrice=totalQty*2;
-
-      cart.push({
-        name:name,
-        price:'RM2.00 / pcs',
-        flavours:selections.map(item=>item.flavour+' ('+item.qty+' pcs)'),
-        qty:totalQty,
-        total:totalPrice
-      });
-
-      renderCart();
-
-      const oldText=button.textContent;
-      button.textContent='✓ Ditambah ke Troli';
-      setTimeout(()=>button.textContent=oldText,1300);
-      return;
-    }
-
-    // PRODUK LAIN
-    const priceElement=card.querySelector('.price');
-    const price=priceElement?priceElement.textContent.trim():'';
-
-    const flavourInputs=Array.from(
-      card.querySelectorAll('.flavour-options input[type="checkbox"]')
-    );
-
-    const flavours=flavourInputs
-      .filter(input=>input.checked)
-      .map(input=>input.value);
-
-    if(flavourInputs.length&&!flavours.length){
-      alert('Sila pilih sekurang-kurangnya satu flavour untuk '+name+' dahulu.');
-      return;
-    }
-
-    cart.push({
-      name:name,
-      price:price,
-      flavours:flavours
-    });
-
-    renderCart();
-
-    const oldText=button.textContent;
-    button.textContent='✓ Ditambah ke Troli';
-    setTimeout(()=>button.textContent=oldText,1300);
-  });
-});
-
-  document.getElementById('naz-order-now').addEventListener('click',()=>{
-    if(!cart.length){
-      alert('Troli masih kosong. Sila tekan Add to Cart pada produk dahulu.');
-      return;
-    }
-
-    
-let message='Hi Kunyah-Kunyah by NaZ! Saya nak buat pesanan:\n\n';
-
-cart.forEach((item,index)=>{
-  message+=(index+1)+'. '+item.name+'\n';
-
-  if(item.qty){
-    message+='   Flavour dan kuantiti: '+item.flavours.join(', ')+'\n';
-    message+='   Jumlah: '+item.qty+' pcs\n';
-    message+='   Jumlah harga: RM'+item.total.toFixed(2)+'\n';
-  } else {
-    if(item.flavours && item.flavours.length){
-      message+='   Flavour: '+item.flavours.join(', ')+'\n';
-    }
-    if(item.price){
-      message+='   Harga dipaparkan: '+item.price+'\n';
-    }
+  if (!field) {
+    return { name: "", price: null, pieces: null };
   }
 
-  message+='\n';
-});
+  if (field.tagName === "SELECT") {
+    const option = field.options[field.selectedIndex];
 
-message+='Mohon sahkan harga dan maklumat tempahan saya. Terima kasih!';
+    return {
+      name: option.value,
+      price: option.dataset.price !== undefined
+        ? Number(option.dataset.price) : null,
+      pieces: option.dataset.pieces !== undefined
+        ? Number(option.dataset.pieces) : null
+    };
+  }
 
+  return {
+    name: field.value.trim(),
+    price: null,
+    pieces: null
+  };
+}
 
-    window.open('https://wa.me/60163160468?text='+encodeURIComponent(message),'_blank');
+function updatePrice(card) {
+  const box = card.querySelector(".price");
+  if (!box) return;
+
+  const name = card.querySelector("h3").textContent.trim();
+
+  if (name === "Mini Cheesekut") {
+    let pcs = 0;
+    let total = 0;
+
+    card.querySelectorAll(".flavour-qty").forEach(input => {
+      const qty = Math.max(0, parseInt(input.value || "0", 10) || 0);
+      pcs += qty;
+      total += qty * Number(input.dataset.price);
+    });
+
+    box.textContent = pcs ? `${pcs} pcs — ${money(total)}` : "RM2 sebiji";
+    return;
+  }
+
+  const variant = getVariant(card);
+
+  if (variant.price !== null && Number.isFinite(variant.price)) {
+    const qty = getQuantity(card);
+    const pcs = variant.pieces !== null
+      ? ` · ${variant.pieces * qty} pcs`
+      : "";
+
+    box.textContent =
+      `${qty} × ${money(variant.price)} = ${money(qty * variant.price)}${pcs}`;
+  } else {
+    box.textContent = "Harga: Sila tanya";
+  }
+}
+
+function addToCart(card) {
+  const product = card.querySelector("h3").textContent.trim();
+
+  if (product === "Mini Cheesekut") {
+    const selections = [];
+
+    card.querySelectorAll(".flavour-qty").forEach(input => {
+      const qty = Math.max(0, parseInt(input.value || "0", 10) || 0);
+
+      if (qty > 0) {
+        selections.push({
+          product,
+          variant: input.dataset.flavour,
+          quantity: qty,
+          price: Number(input.dataset.price),
+          pieces: null
+        });
+      }
+    });
+
+    if (!selections.length) {
+      alert("Sila masukkan kuantiti untuk sekurang-kurangnya satu flavour.");
+      return;
+    }
+
+    selections.forEach(item => {
+      cart.push({ ...item, id: Date.now() + Math.random() });
+    });
+
+    card.querySelectorAll(".flavour-qty").forEach(input => {
+      input.value = "0";
+    });
+
+    updatePrice(card);
+    saveAndRender();
+    return;
+  }
+
+  let variant = getVariant(card);
+
+  if (product === "Muffin") {
+    const flavours = [...card.querySelectorAll(".muffin-flavour:checked")]
+      .map(input => input.value);
+
+    if (!flavours.length) {
+      alert("Sila pilih sekurang-kurangnya satu flavour muffin.");
+      return;
+    }
+
+    variant.name = flavours.join(", ");
+  }
+
+  cart.push({
+    id: Date.now() + Math.random(),
+    product,
+    variant: variant.name,
+    quantity: getQuantity(card),
+    price: variant.price,
+    pieces: variant.pieces
   });
 
-  document.getElementById('naz-clear-cart').addEventListener('click',()=>{
-    cart.length=0;
-    renderCart();
-  });
+  saveAndRender();
+}
+
+function saveAndRender() {
+  try {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+  } catch (error) {
+    console.warn("Cart tidak dapat disimpan dalam pelayar.");
+  }
 
   renderCart();
-})();
+}
+
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  saveAndRender();
+}
+
+function clearCart() {
+  if (!cart.length) {
+    alert("Cart sudah kosong.");
+    return;
+  }
+
+  if (confirm("Nak kosongkan semua item dalam cart?")) {
+    cart = [];
+    saveAndRender();
+  }
+}
+
+function renderCart() {
+  const container = document.getElementById("cart-items");
+  container.innerHTML = "";
+
+  let total = 0;
+  let totalPieces = 0;
+  let unpriced = 0;
+  let itemCount = 0;
+
+  cart.forEach(item => {
+    const qty = Math.max(1, Number(item.quantity) || 1);
+
+    const hasPrice = item.price !== null &&
+      item.price !== undefined &&
+      Number.isFinite(Number(item.price));
+
+    const subtotal = hasPrice ? Number(item.price) * qty : null;
+
+    if (hasPrice) total += subtotal;
+    else unpriced++;
+
+    itemCount += qty;
+
+    if (item.pieces !== null && item.pieces !== undefined) {
+      totalPieces += Number(item.pieces) * qty;
+    }
+
+    const row = document.createElement("div");
+    row.className = "cart-item";
+
+    const details = document.createElement("div");
+    details.className = "cart-item-details";
+
+    const title = document.createElement("strong");
+    title.textContent = item.product;
+
+    const description = document.createElement("small");
+    description.textContent =
+      `${item.variant ? item.variant + " · " : ""}${qty} unit`;
+
+    const amount = document.createElement("div");
+    amount.textContent = hasPrice
+      ? money(subtotal)
+      : "Harga perlu disahkan";
+
+    details.append(title, description, amount);
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "remove-button";
+    remove.textContent = "Buang";
+    remove.addEventListener("click", () => removeItem(item.id));
+
+    row.append(details, remove);
+    container.appendChild(row);
+  });
+
+  if (!cart.length) {
+    const empty = document.createElement("p");
+    empty.className = "empty-cart";
+    empty.textContent = "Cart anda masih kosong.";
+    container.appendChild(empty);
+  }
+
+  document.getElementById("cart-count").textContent = itemCount;
+  document.getElementById("cart-total").textContent = money(total);
+  document.getElementById("cart-pieces").textContent = totalPieces
+    ? `Jumlah pcs bagi set yang dinyatakan: ${totalPieces} pcs`
+    : "";
+
+  document.getElementById("cart-note").textContent = unpriced
+    ? `${unpriced} pilihan produk belum mempunyai harga. Harga akhir perlu disahkan melalui WhatsApp.`
+    : "";
+}
+
+function orderWhatsApp() {
+  if (!cart.length) {
+    alert("Cart kosong. Sila tambah produk dahulu.");
+    return;
+  }
+
+  let message = "Assalamualaikum Kunyah-Kunyah by NaZ! 😊\n";
+  message += "Saya nak buat pesanan:\n\n";
+
+  let total = 0;
+  let hasUnpriced = false;
+
+  cart.forEach((item, index) => {
+    const qty = Math.max(1, Number(item.quantity) || 1);
+
+    const hasPrice = item.price !== null &&
+      item.price !== undefined &&
+      Number.isFinite(Number(item.price));
+
+    const subtotal = hasPrice ? Number(item.price) * qty : null;
+
+    message += `${index + 1}. ${item.product}\n`;
+
+    if (item.variant) {
+      message += `   Pilihan: ${item.variant}\n`;
+    }
+
+    message += `   Kuantiti: ${qty}\n`;
+
+    if (item.pieces !== null && item.pieces !== undefined) {
+      message += `   Jumlah pcs: ${Number(item.pieces) * qty}\n`;
+    }
+
+    if (hasPrice) {
+      message += `   Harga: ${money(subtotal)}\n`;
+      total += subtotal;
+    } else {
+      message += "   Harga: Sila sahkan\n";
+      hasUnpriced = true;
+    }
+
+    message += "\n";
+  });
+
+  message += `Jumlah harga yang diketahui: ${money(total)}\n`;
+
+  if (hasUnpriced) {
+    message += "Nota: Harga bagi sesetengah produk perlu disahkan.\n";
+  }
+
+  message += "\nNama pelanggan: \n";
+  message += "Tarikh/tempahan: \n";
+  message += "\nTerima kasih!";
+
+  const url = "https://wa.me/" + WHATSAPP_NUMBER +
+    "?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
+
+/* Kiraan harga dan butang produk */
+document.querySelectorAll(".card").forEach(card => {
+  card.querySelectorAll(".variant, .quantity, .flavour-qty")
+    .forEach(input => {
+      input.addEventListener("input", () => updatePrice(card));
+      input.addEventListener("change", () => updatePrice(card));
+    });
+
+  card.querySelectorAll(".muffin-flavour").forEach(input => {
+    input.addEventListener("change", () => updatePrice(card));
+  });
+
+  card.querySelector(".add-cart")
+    .addEventListener("click", () => addToCart(card));
+
+  updatePrice(card);
+});
+
+/* Penapis kategori */
+document.querySelectorAll(".filter-button").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".filter-button")
+      .forEach(item => item.classList.remove("active"));
+
+    button.classList.add("active");
+    const filter = button.dataset.filter;
+
+    document.querySelectorAll(".card").forEach(card => {
+      card.style.display =
+        filter === "Semua" || card.dataset.category === filter
+          ? ""
+          : "none";
+    });
+  });
+});
+
+/* Butang cart */
+document.getElementById("clear-cart")
+  .addEventListener("click", clearCart);
+
+document.getElementById("order-whatsapp")
+  .addEventListener("click", orderWhatsApp);
+
+renderCart();
 </script>
+
 </body>
 </html>
