@@ -913,14 +913,16 @@ function addToCart(card) {
     return;
   }
 
-  let variant = getVariant(card);
+  
+let variant = getVariant(card);
 
-  const topping = card.querySelector(".topping");
+const topping = card.querySelector(".topping");
 if (topping) {
   variant.name += " | Topping: " + topping.value;
 }
 
-  if (product === "Muffin") {
+if (product === "Muffin") {
+
     const flavours = [...card.querySelectorAll(".muffin-flavour:checked")]
       .map(input => input.value);
 
