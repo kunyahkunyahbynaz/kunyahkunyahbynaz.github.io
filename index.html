@@ -601,35 +601,36 @@ footer a {
       </div>
     </article>
 
-    <article class="card" data-category="Muffin">
-      <div class="product-photo">
-        <img src="muffin.jpg" alt="Muffin"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <span class="photo-fallback">🧁</span>
-      </div>
-      <div class="card-body">
-        <span class="tag">Muffin</span>
-        <h3>Muffin</h3>
-        <p>Muffin lembut dan gebu, sesuai dinikmati bersama keluarga atau sebagai kudapan.</p>
-        <div class="price">Harga: Sila tanya</div>
-        <label>Pilih flavour:</label>
-        <div class="flavour-row">
-          <input type="checkbox" class="muffin-flavour" value="Pisang" id="muffin-pisang">
-          <label for="muffin-pisang">Pisang</label>
-        </div>
-        <div class="flavour-row">
-          <input type="checkbox" class="muffin-flavour" value="Pisang Chocolate" id="muffin-pisang-choc">
-          <label for="muffin-pisang-choc">Pisang Chocolate</label>
-        </div>
-        <div class="flavour-row">
-          <input type="checkbox" class="muffin-flavour" value="Chocolate" id="muffin-choc">
-          <label for="muffin-choc">Chocolate</label>
-        </div>
-        <label>Kuantiti</label>
-        <input class="quantity" type="number" min="1" value="1">
-        <button class="add-cart" type="button">Tambah ke Cart</button>
-      </div>
-    </article>
+    
+<article class="card" data-category="Muffin">
+  <div class="product-photo">
+    <img src="muffin.jpg" alt="Muffin Pisang"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <span class="photo-fallback">🧁</span>
+  </div>
+  <div class="card-body">
+    <span class="tag">Muffin</span>
+    <h3>Muffin Pisang</h3>
+    <p>Muffin pisang homemade. 50 pcs untuk setiap set.</p>
+
+    <label>Pilih flavour</label>
+    <select class="variant">
+      <option value="Original — 50 pcs" data-price="30" data-pieces="50">
+        Original — 50 pcs (RM30)
+      </option>
+      <option value="Chocolate — 50 pcs" data-price="35" data-pieces="50">
+        Chocolate — 50 pcs (RM35)
+      </option>
+    </select>
+
+    <label>Kuantiti set</label>
+    <input class="quantity" type="number" min="1" value="1">
+
+    <div class="price"></div>
+    <button class="add-cart" type="button">Tambah ke Cart</button>
+  </div>
+</article>
+
 
     <article class="card" data-category="Hokkaido">
       <div class="product-photo">
