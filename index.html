@@ -4,180 +4,356 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#fff3e6">
-<meta name="description" content="Kunyah-Kunyah by NaZ — kek dan pencuci mulut homemade. Lihat katalog dan tempah melalui WhatsApp.">
+<meta name="description" content="Kunyah-Kunyah by NaZ — kek dan pencuci mulut homemade.">
 <title>Kunyah-Kunyah by NaZ | Manisnya Setiap Gigitan</title>
+
 <style>
-:root{--cream:#fff8ef;--peach:#ffd8bd;--pink:#f7c9cf;--brown:#713b2c;--orange:#e98555;--green:#218653;--ink:#38271f;--muted:#7b665b;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
-a{color:inherit}.wrap{width:min(1100px,92%);margin:auto}
+:root{--cream:#fff8ef;--brown:#713b2c;--orange:#e98555;--green:#218653;--ink:#38271f;--muted:#7b665b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+a{color:inherit}
+.wrap{width:min(1100px,92%);margin:auto}
 header{position:sticky;top:0;z-index:5;background:rgba(255,248,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid #f0dfd2}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}.brand{font-weight:900;color:var(--brown);font-size:1.15rem;text-decoration:none;line-height:1.1}.brand small{display:block;font-weight:600;font-size:.72rem;color:var(--orange);letter-spacing:.06em;margin-top:5px}.navlinks{display:flex;gap:18px;align-items:center}.navlinks a{text-decoration:none;font-weight:650;font-size:.92rem}.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 18px;font-weight:800;text-decoration:none;cursor:pointer}.wa{background:var(--green);color:#fff}.ghost{background:#fff;border:1px solid #f0d9c9;color:var(--brown)}
-.hero{padding:52px 0 40px}.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:36px}.eyebrow{display:inline-block;background:#ffe4cf;color:#8a4a2e;padding:7px 12px;border-radius:999px;font-size:.83rem;font-weight:800}.hero h1{font-size:clamp(2.4rem,5.5vw,4.7rem);line-height:1.02;letter-spacing:-.05em;color:var(--brown);margin:18px 0}.hero p{font-size:1.08rem;color:var(--muted);max-width:520px}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.hero-art{min-height:350px;border-radius:32px;overflow:hidden;background:linear-gradient(140deg,#ffe6bd,#f9cbd0 60%,#f6b98f);display:flex;align-items:center;justify-content:center;padding:18px;position:relative}.hero-art img{width:100%;height:340px;object-fit:cover;border-radius:24px;background:#fff3e6}.photo-fallback{display:none;text-align:center;font-size:5rem}.hero-art.no-photo img{display:none}.hero-art.no-photo .photo-fallback{display:block}
-section{padding:34px 0 48px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.1;color:var(--brown);margin:0}.section-head p{color:var(--muted);margin:8px 0 0}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.filter{border:1px solid #ead5c7;background:#fff;color:var(--brown);border-radius:999px;padding:9px 15px;font-weight:750;cursor:pointer}.filter.active{background:var(--brown);color:#fff;border-color:var(--brown)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:#fff;border:1px solid #f1e3d8;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px #78401a0b}.product-photo{height:220px;background:linear-gradient(135deg,#ffe7c7,#f8cbd1);display:flex;align-items:center;justify-content:center;overflow:hidden}.product-photo img{width:100%;height:100%;object-fit:cover;display:block}.emoji{font-size:4.5rem}.card-body{padding:17px}.tag{display:inline-block;background:#fff0e2;color:#98532e;border-radius:8px;padding:4px 8px;font-size:.75rem;font-weight:800}.card h3{margin:10px 0 5px;color:var(--brown);font-size:1.18rem}.card p{margin:0 0 14px;color:var(--muted);font-size:.92rem;min-height:45px}.price{font-weight:850;color:#a45a37;margin-bottom:14px}.card .pill{width:100%}
-.notice{background:#ffebd8;border-radius:26px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}.notice h2{margin:0;color:var(--brown);font-size:1.8rem}.notice p{margin:8px 0 0;color:#775547}.notice-icon{font-size:3rem;flex-shrink:0}
-footer{background:#713b2c;color:#fff2e8;padding:30px 0;margin-top:24px}.foot{display:flex;justify-content:space-between;gap:18px;align-items:center}.foot p{margin:5px 0;color:#f3d9cb;font-size:.9rem}.float-wa{position:fixed;right:18px;bottom:18px;z-index:6;box-shadow:0 8px 25px #0002}
-@media(max-width:760px){.navlinks a:not(.pill){display:none}.hero{padding-top:30px}.hero-grid{grid-template-columns:1fr;gap:22px}.hero-art{min-height:240px}.hero-art img{height:250px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.product-photo{height:160px}.card-body{padding:13px}.card p{min-height:0}.section-head{align-items:start;flex-direction:column}.notice{align-items:flex-start;padding:22px}.foot{align-items:flex-start;flex-direction:column}}
-@media(max-width:420px){.grid{grid-template-columns:1fr}.product-photo{height:220px}.hero h1{font-size:2.7rem}.pill{padding:11px 15px}}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+.brand{font-weight:900;color:var(--brown);font-size:1.15rem;text-decoration:none;line-height:1.1}
+.brand small{display:block;font-weight:600;font-size:.72rem;color:var(--orange);letter-spacing:.06em;margin-top:5px}
+.navlinks{display:flex;gap:18px;align-items:center}
+.navlinks a{text-decoration:none;font-weight:650;font-size:.92rem}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:12px 18px;font-weight:800;text-decoration:none;cursor:pointer}
+.wa{background:var(--green);color:#fff}
+.ghost{background:#fff;border:1px solid #f0d9c9;color:var(--brown)}
+.hero{padding:52px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:36px}
+.eyebrow{display:inline-block;background:#ffe4cf;color:#8a4a2e;padding:7px 12px;border-radius:999px;font-size:.83rem;font-weight:800}
+.hero h1{font-size:clamp(2.4rem,5.5vw,4.7rem);line-height:1.02;letter-spacing:-.05em;color:var(--brown);margin:18px 0}
+.hero p{font-size:1.08rem;color:var(--muted);max-width:520px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.hero-art{min-height:350px;border-radius:32px;overflow:hidden;background:linear-gradient(140deg,#ffe6bd,#f9cbd0 60%,#f6b98f);display:flex;align-items:center;justify-content:center;padding:18px;position:relative}
+.hero-art img{width:100%;height:340px;object-fit:cover;border-radius:24px}
+.photo-fallback{display:none;text-align:center;font-size:5rem}
+.hero-art.no-photo img{display:none}
+.hero-art.no-photo .photo-fallback{display:block}
+section{padding:34px 0 48px}
+.section-head{margin-bottom:22px}
+.section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.1;color:var(--brown);margin:0}
+.section-head p{color:var(--muted);margin:8px 0 0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filter{border:1px solid #ead5c7;background:#fff;color:var(--brown);border-radius:999px;padding:9px 15px;font-weight:750;cursor:pointer}
+.filter.active{background:var(--brown);color:#fff;border-color:var(--brown)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card,.product-card{background:#fff;border:1px solid #f1e3d8;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px #78401a0b}
+.product-photo{height:220px;background:linear-gradient(135deg,#ffe7c7,#f8cbd1);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.emoji{font-size:4.5rem}
+.card-body,.product-info{padding:17px}
+.tag,.product-category{display:inline-block;background:#fff0e2;color:#98532e;border-radius:8px;padding:4px 8px;font-size:.75rem;font-weight:800}
+.card h3,.product-card h3{margin:10px 0 5px;color:var(--brown);font-size:1.18rem}
+.card p,.product-card p{margin:0 0 14px;color:var(--muted);font-size:.92rem}
+.price{font-weight:850;color:#a45a37;margin-bottom:14px}
+.flavour-options{margin:10px 0 14px;padding:12px;background:#fff8ef;border-radius:12px}
+.flavour-options p{margin:0 0 8px!important}
+.flavour-options label{display:inline-flex;align-items:center;gap:6px;margin:4px 10px 4px 0;font-size:.92rem}
+.flavour-options input{accent-color:var(--green)}
+.add-cart{display:block;width:100%;margin-top:12px;padding:12px 20px;border:0;border-radius:30px;background:var(--green);color:white;font-size:16px;font-weight:800;cursor:pointer}
+#naz-cart{margin:24px auto 40px;padding:20px;background:#fff8ef;border:1px solid #ead8c8;border-radius:20px;color:#51372c}
+#naz-cart h2{margin-top:0;color:var(--brown)}
+#naz-cart-list{padding-left:22px}
+#naz-cart-list li{margin:10px 0}
+.cart-action{display:block;width:100%;border:0;border-radius:30px;padding:14px;margin-top:10px;font-size:16px;font-weight:bold;cursor:pointer}
+#naz-order-now{background:var(--green);color:white}
+#naz-clear-cart{background:#eee2d8;color:#51372c}
+.cart-remove{border:0;background:#f4dfd2;color:#713b2c;border-radius:20px;padding:5px 10px;margin-left:8px;font-weight:700;cursor:pointer}
+.notice{background:#ffebd8;border-radius:26px;padding:28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.notice h2{margin:0;color:var(--brown);font-size:1.8rem}
+.notice p{margin:8px 0 0;color:#775547}
+.notice-icon{font-size:3rem}
+footer{background:#713b2c;color:#fff2e8;padding:30px 0;margin-top:24px}
+.foot{display:flex;justify-content:space-between;gap:18px;align-items:center}
+.foot p{margin:5px 0;color:#f3d9cb;font-size:.9rem}
+.float-wa{position:fixed;right:18px;bottom:18px;z-index:6;box-shadow:0 8px 25px #0002}
+@media(max-width:760px){
+.navlinks a:not(.pill){display:none}
+.hero{padding-top:30px}
+.hero-grid{grid-template-columns:1fr;gap:22px}
+.hero-art{min-height:240px}
+.hero-art img{height:250px}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product-photo{height:160px}
+.card-body,.product-info{padding:13px}
+.notice{align-items:flex-start;padding:22px}
+.foot{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:420px){
+.grid{grid-template-columns:1fr}
+.product-photo{height:220px}
+.hero h1{font-size:2.7rem}
+.pill{padding:11px 15px}
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap nav">
+<header>
+<div class="wrap nav">
 <a class="brand" href="#">🍰 Kunyah-Kunyah by NaZ<small>MANISNYA SETIAP GIGITAN</small></a>
-<nav class="navlinks"><a href="#menu">Menu</a><a href="#tempahan">Cara Tempah</a><a class="pill wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tanya%20tentang%20menu." target="_blank" rel="noopener">WhatsApp kami</a></nav>
-</div></header>
+<nav class="navlinks">
+<a href="#menu">Menu</a>
+<a href="#tempahan">Cara Tempah</a>
+<a class="pill wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tanya%20tentang%20menu." target="_blank" rel="noopener">WhatsApp kami</a>
+</nav>
+</div>
+</header>
+
 <main>
-<div class="wrap hero"><div class="hero-grid">
-<div><span class="eyebrow">Homemade dengan penuh kasih sayang ♡</span>
+<div class="wrap hero">
+<div class="hero-grid">
+<div>
+<span class="eyebrow">Homemade dengan penuh kasih sayang ♡</span>
 <h1>Maniskan<br>hari anda!</h1>
 <p>Singgah tengok pilihan kek dan pencuci mulut Kunyah-Kunyah by NaZ. Pilih menu kegemaran dan hubungi kami untuk semak harga serta tempahan.</p>
-<div class="hero-actions"><a class="pill wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20buat%20tempahan." target="_blank" rel="noopener">💬 Tempah di WhatsApp</a><a class="pill ghost" href="#menu">Lihat menu ↓</a></div></div>
-<div class="hero-art no-photo" id="heroArt"><img src="hero.PNG" alt="Pilihan pencuci mulut Kunyah-Kunyah by NaZ" onload="this.parentElement.classList.remove('no-photo')" onerror="this.style.display='none'"><div class="photo-fallback">🧁 🍰 🍫</div></div>
-</div></div>
-<section id="menu"><div class="wrap">
-<div class="section-head"><div><h2>Menu pilihan kami</h2><p>Harga akan dikemaskini. Tanya kami untuk harga terkini dan ketersediaan.</p></div></div>
-<div class="filters" aria-label="Tapis kategori"><button class="filter active" data-filter="Semua">Semua</button><button class="filter" data-filter="Kek">Kek</button><button class="filter" data-filter="Brownies">Brownies</button><button class="filter" data-filter="Cheesecake">Cheesecake</button><button class="filter" data-filter="Lain-lain">Lain-lain</button></div>
+<div class="hero-actions">
+<a class="pill wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20buat%20tempahan." target="_blank" rel="noopener">💬 Tempah di WhatsApp</a>
+<a class="pill ghost" href="#menu">Lihat menu ↓</a>
+</div>
+</div>
+<div class="hero-art no-photo" id="heroArt">
+<img src="hero.PNG" alt="Pilihan pencuci mulut Kunyah-Kunyah by NaZ" onload="this.parentElement.classList.remove('no-photo')" onerror="this.style.display='none'">
+<div class="photo-fallback">🧁 🍰 🍫</div>
+</div>
+</div>
+</div>
+
+<section id="menu">
+<div class="wrap">
+<div class="section-head">
+<h2>Menu pilihan kami</h2>
+<p>Harga akan dikemaskini. Tanya kami untuk harga terkini dan ketersediaan.</p>
+</div>
+
+<div class="filters" aria-label="Tapis kategori">
+<button class="filter active" data-filter="Semua">Semua</button>
+<button class="filter" data-filter="Kek">Kek</button>
+<button class="filter" data-filter="Brownies">Brownies</button>
+<button class="filter" data-filter="Cheesecake">Cheesecake</button>
+<button class="filter" data-filter="Lain-lain">Lain-lain</button>
+<button class="filter" data-filter="Muffin">Muffin</button>
+<button class="filter" data-filter="Cheesekut">Cheesekut</button>
+</div>
+
 <div class="grid">
-<article class="card" data-category="Kek"><div class="product-photo"><img src="kek-pisang.JPG" alt="Kek Pisang" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍌</span></div><div class="card-body"><span class="tag">Kek</span><h3>Kek Pisang</h3><p>Kek pisang homemade yang sesuai untuk minum petang.</p><div class="price">Harga: hubungi kami</div><a class="pill wa order" href="#" data-product="Kek Pisang">Tanya / Tempah</a></div></article>
-<article class="card" data-category="Brownies"><div class="product-photo"><img src="brownies.JPG" alt="Brownies" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍫</span></div><div class="card-body"><span class="tag">Brownies</span><h3>Brownies</h3><p>Manisan coklat untuk dikongsi bersama keluarga dan kawan.</p><div class="price">Harga: hubungi kami</div><a class="pill wa order" href="#" data-product="Brownies">Tanya / Tempah</a></div></article>
-<article class="card" data-category="Cheesekut"><div class="product-photo"><img src="mini.cheesekut.jpg" alt="Mini Cheesekut" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍰</span></div><div class="card-body"><span class="tag">Cheesekut</span><h3>Mini Cheesekut</h3><p>Saiz comel, sesuai untuk hadiah atau pencuci mulut.</p>
+
+<article class="card" data-category="Kek">
+<div class="product-photo"><img src="kek-pisang.JPG" alt="Kek Pisang" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍌</span></div>
+<div class="card-body">
+<span class="tag">Kek</span><h3>Kek Pisang</h3>
+<p>Kek pisang homemade yang sesuai untuk minum petang.</p>
+<div class="price">Harga: hubungi kami</div>
+<button class="add-cart" type="button">Add to Cart</button>
+</div>
+</article>
+
+<article class="card" data-category="Brownies">
+<div class="product-photo"><img src="brownies.JPG" alt="Brownies" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍫</span></div>
+<div class="card-body">
+<span class="tag">Brownies</span><h3>Brownies</h3>
+<p>Manisan coklat untuk dikongsi bersama keluarga dan kawan.</p>
+<div class="price">Harga: hubungi kami</div>
+<button class="add-cart" type="button">Add to Cart</button>
+</div>
+</article>
+
+<article class="card" data-category="Cheesekut">
+<div class="product-photo"><img src="mini.cheesekut.jpg" alt="Mini Cheesekut" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍰</span></div>
+<div class="card-body">
+<span class="tag">Cheesekut</span><h3>Mini Cheesekut</h3>
+<p>Saiz comel, sesuai untuk hadiah atau pencuci mulut.</p>
 <p class="price">RM2 / pcs</p>
-
 <div class="flavour-options">
-  <p><strong>Pilih Flavour:</strong></p>
-
-  <label>
-    <input type="checkbox" name="cheesekut-flavour" value="Oreo">
-    Oreo
-  </label>
-
-  <label>
-    <input type="checkbox" name="cheesekut-flavour" value="Biscoff">
-    Biscoff
-  </label>
-
-  <label>
-    <input type="checkbox" name="cheesekut-flavour" value="Nestum">
-    Nestum
-  </label>
+<p><strong>Pilih Flavour:</strong></p>
+<label><input type="checkbox" name="cheesekut-flavour" value="Oreo"> Oreo</label>
+<label><input type="checkbox" name="cheesekut-flavour" value="Biscoff"> Biscoff</label>
+<label><input type="checkbox" name="cheesekut-flavour" value="Nestum"> Nestum</label>
 </div>
-Tanya / Tempah</a></div></article>
-  
-<!-- MUFFIN -->
-<div class="product-card" data-category="Muffin">
-  <div class="product-photo">
-    <img
-      src="muffin.jpg"
-      alt="Muffin Kunyah-Kunyah by NaZ"
-      loading="lazy"
-      onerror="this.style.display='none'"
-    >
-  </div>
-
-  <div class="product-info">
-    <span class="product-category">Muffin</span>
-
-    <h3>Muffin</h3>
-
-    <p>
-      Muffin lembut dan gebu, sesuai dinikmati
-      bersama keluarga atau sebagai kudapan.
-    </p>
-
-    <p class="price">Harga: Sila tanya</p>
-
-<div class="flavour-options">
-  <p><strong>Pilih Flavour:</strong></p>
-
-  <label>
-    <input type="checkbox" name="muffin-flavour" value="Pisang">
-    Pisang
-  </label>
-
-  <label>
-    <input type="checkbox" name="muffin-flavour" value="Pisang Chocolate">
-    Pisang Chocolate
-  </label>
-
-  <label>
-    <input type="checkbox" name="muffin-flavour" value="Chocolate">
-    Chocolate
-  </label>
+<button class="add-cart" type="button">Add to Cart</button>
 </div>
+</article>
 
-<a
-  class="btn"
-  href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tempah%20Muffin"
-  target="_blank"
-  rel="noopener"
-  style="display:block;width:100%;box-sizing:border-box;background:#218653;color:white;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:bold;text-align:center;margin:12px 0 0;"
-
-
->
-  Tanya / Tempah
-</a>
-
-
-<!-- HOKKAIDO MUFFIN -->
 <article class="card" data-category="Muffin">
-  <div class="product-photo">
-    <img
-      src="hokkaido-muffin.JPG"
-      alt="Hokkaido Muffin Kunyah-Kunyah by NaZ"
-      loading="lazy"
-    >
-  </div>
-
-  <div class="card-body">
-    <span class="tag">Muffin</span>
-
-    <h3>Hokkaido Muffin</h3>
-
-    <p>
-      Hokkaido Muffin yang lembut dan gebu,
-      dihiasi krim yang menyelerakan.
-      Sesuai untuk minum petang dan dinikmati
-      bersama keluarga.
-    </p>
-
-    <div class="price">Harga: Sila tanya</div>
-
-    <a
-      class="pill wa order"
-      href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tanya%20dan%20tempah%20Hokkaido%20Muffin."
-      target="_blank"
-      rel="noopener"
-      style="display:block;width:100%;box-sizing:border-box;background:#218653;color:white;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:bold;text-align:center;margin:12px 0 0;"
-    >
-      Tanya / Tempah
-    </a>
-  </div>
-</article>
-<article class="card" data-category="Cheesecake">
-  <div class="product-photo">
-    <img src="cheesecake.JPG" alt="Cheesecake"
-      onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-    <span class="emoji" style="display:none">🍰</span>
-  </div>
-  <div class="card-body">
-    <span class="tag">Cheesecake</span>
-    <h3>Cheesecake</h3>
-    <p>Cheesecake homemade yang lembut dan berkrim.</p>
-    <div class="price">Harga: hubungi kami</div>
-    <a class="pill wa order" href="#" data-product="Cheesecake">Tanya / Tempah</a>
-  </div>
-</article>
-
-<article class="card" data-category="Lain-lain"><div class="product-photo"><img src="creampuff.JPG" alt="Cream Puff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div><div class="card-body"><span class="tag">Lain-lain</span><h3>Cream Puff</h3><p>Pastri berkrim; hubungi kami untuk pilihan dan ketersediaan.</p><div class="price">Harga: hubungi kami</div><a class="pill wa order" href="#" data-product="Cream Puff">Tanya / Tempah</a></div></article>
+<div class="product-photo"><img src="muffin.jpg" alt="Muffin Kunyah-Kunyah by NaZ" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div>
+<div class="card-body">
+<span class="tag">Muffin</span><h3>Muffin</h3>
+<p>Muffin lembut dan gebu, sesuai dinikmati bersama keluarga atau sebagai kudapan.</p>
+<p class="price">Harga: Sila tanya</p>
+<div class="flavour-options">
+<p><strong>Pilih Flavour:</strong></p>
+<label><input type="checkbox" name="muffin-flavour" value="Pisang"> Pisang</label>
+<label><input type="checkbox" name="muffin-flavour" value="Pisang Chocolate"> Pisang Chocolate</label>
+<label><input type="checkbox" name="muffin-flavour" value="Chocolate"> Chocolate</label>
 </div>
-</div></section>
-<section id="tempahan"><div class="wrap"><div class="notice"><div><h2>Jom buat tempahan! 💌</h2><p>Tekan WhatsApp dan beritahu produk yang anda minat. Kami akan bantu semak harga, tarikh dan cara pengambilan/penghantaran.</p><p><strong>WhatsApp:</strong> 016-316 0468</p></div><div class="notice-icon">🎀</div></div></div></section>
+<button class="add-cart" type="button">Add to Cart</button>
+</div>
+</article>
+
+<article class="card" data-category="Muffin">
+<div class="product-photo"><img src="hokkaido-muffin.JPG" alt="Hokkaido Muffin Kunyah-Kunyah by NaZ" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div>
+<div class="card-body">
+<span class="tag">Muffin</span><h3>Hokkaido Muffin</h3>
+<p>Hokkaido Muffin yang lembut dan gebu, dihiasi krim yang menyelerakan. Sesuai untuk minum petang dan dinikmati bersama keluarga.</p>
+<div class="price">Harga: Sila tanya</div>
+<button class="add-cart" type="button">Add to Cart</button>
+</div>
+</article>
+
+<article class="card" data-category="Cheesecake">
+<div class="product-photo"><img src="cheesecake.JPG" alt="Cheesecake" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🍰</span></div>
+<div class="card-body">
+<span class="tag">Cheesecake</span><h3>Cheesecake</h3>
+<p>Cheesecake homemade yang lembut dan berkrim.</p>
+<div class="price">Harga: hubungi kami</div>
+<button class="add-cart" type="button">Add to Cart</button>
+</div>
+</article>
+
+<article class="card" data-category="Lain-lain">
+<div class="product-photo"><img src="creampuff.JPG" alt="Cream Puff" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="emoji" style="display:none">🧁</span></div>
+<div class="card-body">
+<span class="tag">Lain-lain</span><h3>Cream Puff</h3>
+<p>Pastri berkrim; hubungi kami untuk pilihan dan ketersediaan.</p>
+<div class="price">Harga: hubungi kami</div>
+<button class="add-cart" type="button">Add to Cart</button>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section id="tempahan">
+<div class="wrap">
+<div class="notice">
+<div>
+<h2>Jom buat tempahan! 💌</h2>
+<p>Tambah produk ke troli, kemudian tekan Order Now untuk menghantar senarai pesanan melalui WhatsApp.</p>
+<p><strong>WhatsApp:</strong> 016-316 0468</p>
+</div>
+<div class="notice-icon">🎀</div>
+</div>
+</div>
+</section>
+
+<section aria-label="Troli pesanan">
+<div class="wrap">
+<div id="naz-cart">
+<h2>🛒 Troli Pesanan</h2>
+<p id="naz-cart-count" aria-live="polite">Belum ada produk dalam troli.</p>
+<ul id="naz-cart-list"></ul>
+<button id="naz-order-now" class="cart-action" type="button">Order Now — WhatsApp</button>
+<button id="naz-clear-cart" class="cart-action" type="button">Kosongkan Troli</button>
+</div>
+</div>
+</section>
 </main>
-<footer><div class="wrap foot"><div><strong>🍰 Kunyah-Kunyah by NaZ</strong><p>Manisnya setiap gigitan.</p></div><p>© <span id="year"></span> Kunyah-Kunyah by NaZ. Semua hak terpelihara.</p></div></footer>
+
+<footer>
+<div class="wrap foot">
+<div><strong>🍰 Kunyah-Kunyah by NaZ</strong><p>Manisnya setiap gigitan.</p></div>
+<p>© <span id="year"></span> Kunyah-Kunyah by NaZ. Semua hak terpelihara.</p>
+</div>
+</footer>
+
 <a class="pill wa float-wa" href="https://wa.me/60163160468?text=Hi%20Kunyah-Kunyah%20by%20NaZ%2C%20saya%20nak%20tanya%20tentang%20menu." target="_blank" rel="noopener">💬 WhatsApp</a>
+
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
-document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.card').forEach(card=>{card.style.display=btn.dataset.filter==='Semua'||card.dataset.category===btn.dataset.filter?'':'none'})}));
-document.querySelectorAll('.order').forEach(link=>{const product=link.dataset.product;const msg='Hi Kunyah-Kunyah by NaZ, saya berminat dengan '+product+'. Boleh kongsi harga dan maklumat tempahan?';link.href='https://wa.me/60163160468?text='+encodeURIComponent(msg);link.target='_blank';link.rel='noopener'});
+
+document.querySelectorAll('.filter').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.grid > [data-category]').forEach(card=>{
+      card.style.display=(btn.dataset.filter==='Semua'||card.dataset.category===btn.dataset.filter)?'':'none';
+    });
+  });
+});
+
+(function(){
+  const cart=[];
+  const cartCount=document.getElementById('naz-cart-count');
+  const cartList=document.getElementById('naz-cart-list');
+
+  function renderCart(){
+    cartCount.textContent=cart.length?cart.length+' pilihan produk dalam troli.':'Belum ada produk dalam troli.';
+    cartList.replaceChildren();
+
+    cart.forEach((item,index)=>{
+      const li=document.createElement('li');
+      let text=item.name;
+      if(item.flavours.length) text+=' — Flavour: '+item.flavours.join(', ');
+      if(item.price) text+=' ('+item.price+')';
+      li.appendChild(document.createTextNode(text+' '));
+
+      const remove=document.createElement('button');
+      remove.type='button';
+      remove.className='cart-remove';
+      remove.textContent='Buang';
+      remove.addEventListener('click',()=>{
+        cart.splice(index,1);
+        renderCart();
+      });
+      li.appendChild(remove);
+      cartList.appendChild(li);
+    });
+  }
+
+  document.querySelectorAll('.add-cart').forEach(button=>{
+    button.addEventListener('click',()=>{
+      const card=button.closest('[data-category]');
+      const name=card.querySelector('h3').textContent.trim();
+      const priceElement=card.querySelector('.price');
+      const price=priceElement?priceElement.textContent.trim():'';
+      const flavourInputs=Array.from(card.querySelectorAll('.flavour-options input[type="checkbox"]'));
+      const flavours=flavourInputs.filter(input=>input.checked).map(input=>input.value);
+
+      if(flavourInputs.length&&!flavours.length){
+        alert('Sila pilih sekurang-kurangnya satu flavour untuk '+name+' dahulu.');
+        return;
+      }
+
+      cart.push({name,price,flavours});
+      renderCart();
+
+      const oldText=button.textContent;
+      button.textContent='✓ Ditambah ke Troli';
+      setTimeout(()=>button.textContent=oldText,1300);
+    });
+  });
+
+  document.getElementById('naz-order-now').addEventListener('click',()=>{
+    if(!cart.length){
+      alert('Troli masih kosong. Sila tekan Add to Cart pada produk dahulu.');
+      return;
+    }
+
+    let message='Hi Kunyah-Kunyah by NaZ! Saya nak buat pesanan:\n\n';
+    cart.forEach((item,index)=>{
+      message+=(index+1)+'. '+item.name+'\n';
+      if(item.flavours.length) message+='   Flavour: '+item.flavours.join(', ')+'\n';
+      if(item.price) message+='   Harga dipaparkan: '+item.price+'\n';
+      message+='\n';
+    });
+    message+='Mohon sahkan harga dan maklumat tempahan saya. Terima kasih!';
+
+    window.open('https://wa.me/60163160468?text='+encodeURIComponent(message),'_blank');
+  });
+
+  document.getElementById('naz-clear-cart').addEventListener('click',()=>{
+    cart.length=0;
+    renderCart();
+  });
+
+  renderCart();
+})();
 </script>
-</body></html>
+</body>
+</html>
