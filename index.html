@@ -526,22 +526,46 @@ footer a {
 
   <section class="products" id="products">
 
-    <article class="card" data-category="Kek">
-      <div class="product-photo">
-        <img src="kek-pisang.JPG" alt="Kek Pisang"
-             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <span class="photo-fallback">🍌</span>
-      </div>
-      <div class="card-body">
-        <span class="tag">Kek</span>
-        <h3>Kek Pisang</h3>
-        <p>Kek pisang homemade yang sesuai untuk minum petang.</p>
-        <div class="price">Harga: Sila tanya</div>
-        <label>Kuantiti</label>
-        <input class="quantity" type="number" min="1" value="1">
-        <button class="add-cart" type="button">Tambah ke Cart</button>
-      </div>
-    </article>
+    
+<article class="card" data-category="Kek">
+  <div class="product-photo">
+    <img src="kek-pisang.JPG" alt="Kek Pisang"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <span class="photo-fallback">🍌</span>
+  </div>
+
+  <div class="card-body">
+    <span class="tag">Kek</span>
+    <h3>Kek Pisang</h3>
+    <p>Kek pisang homemade dengan pilihan topping dan cheese.</p>
+
+    <label>Pilihan kek</label>
+    <select class="variant">
+      <option value="Classic" data-price="30">Classic — RM30</option>
+      <option value="Chocolate" data-price="35">Chocolate — RM35</option>
+      <option value="Double Choc. (Extra Choc Drizzle)" data-price="38">Double Choc. (Extra Choc Drizzle) — RM38</option>
+      <option value="2 Benua (Classic + Choc.)" data-price="35">2 Benua (Classic + Choc.) — RM35</option>
+      <option value="Classic Cheese (Full)" data-price="40">Classic Cheese (Full) — RM40</option>
+      <option value="Choc. Cheese (Full)" data-price="46">Choc. Cheese (Full) — RM46</option>
+      <option value="2 Benua Cheese (Full)" data-price="46">2 Benua Cheese (Full) — RM46</option>
+      <option value="2 Benua Cheese (Half)" data-price="44">2 Benua Cheese (Half) — RM44</option>
+    </select>
+
+    <label>Pilihan topping</label>
+    <select class="topping">
+      <option value="Choc. Chunk">Choc. Chunk</option>
+      <option value="Pisang Slice">Pisang Slice</option>
+    </select>
+
+    <label>Kuantiti</label>
+    <input class="quantity" type="number" min="1" value="1">
+
+    <div class="price"></div>
+
+    <button class="add-cart" type="button">Tambah ke Cart</button>
+  </div>
+</article>
+
 
     <article class="card" data-category="Brownies">
       <div class="product-photo">
@@ -890,6 +914,11 @@ function addToCart(card) {
   }
 
   let variant = getVariant(card);
+
+  const topping = card.querySelector(".topping");
+if (topping) {
+  variant.name += " | Topping: " + topping.value;
+}
 
   if (product === "Muffin") {
     const flavours = [...card.querySelectorAll(".muffin-flavour:checked")]
