@@ -4,405 +4,754 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f8f4eb">
-<title>Kunyah-Kunyah by NaZ | Artisan Bakery</title>
-
+<title>Kunyah-Kunyah by NaZ</title>
+<meta name="theme-color" content="#B49A7D">
 <style>
 :root {
-  --bg:#f8f4eb;
-  --paper:#fffdf8;
-  --brown:#35241e;
-  --muted:#806d60;
-  --gold:#b18a53;
-  --line:#e7dccb;
-  --green:#42634b;
-  --green-dark:#304b38;
+  --mocha: #B49A7D;
+  --mocha-dark: #74513D;
+  --brown: #493329;
+  --gold: #B68B50;
+  --cream: #FBF7EF;
+  --white: #FFFFFF;
+  --muted: #78685C;
+  --border: #D8C5AF;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:100px}
-body{margin:0;background:var(--bg);color:var(--brown);font-family:Arial,Helvetica,sans-serif;line-height:1.6}
-button,input,select{font:inherit}
-button{cursor:pointer}
-a{color:inherit}
-.site-header{position:sticky;top:0;z-index:20;background:#f8f4ebf2;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.header-inner{max-width:1200px;margin:auto;padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand h1{font-family:Georgia,serif;font-size:clamp(19px,3vw,29px);margin:0;letter-spacing:-.7px}
-.brand p{margin:3px 0 0;font-size:10px;letter-spacing:3px;color:var(--gold);font-weight:bold}
-.header-link{background:var(--green);color:white;text-decoration:none;padding:11px 17px;border-radius:30px;font-size:13px;font-weight:bold;white-space:nowrap}
-main{max-width:1200px;margin:auto;padding:22px}
-.hero{min-height:340px;border-radius:5px;overflow:hidden;position:relative;background:#4b352b;color:white;display:flex;align-items:center}
-.hero>img{position:absolute;width:100%;height:100%;object-fit:cover;inset:0;opacity:.48}
-.hero-content{position:relative;padding:clamp(28px,6vw,75px);max-width:700px}
-.eyebrow{color:#e4c89a;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:bold}
-.hero h2{font-family:Georgia,serif;font-weight:normal;font-size:clamp(34px,6vw,64px);line-height:1.08;margin:16px 0}
-.hero p{max-width:460px;color:#f1e8dc;font-size:15px}
-.hero-btn{display:inline-block;margin-top:15px;background:#d2b27e;color:#2d2019;padding:12px 22px;text-decoration:none;font-weight:bold;font-size:13px}
-.intro{text-align:center;padding:45px 10px 22px}
-.intro h2,.section-title{font-family:Georgia,serif;font-weight:normal}
-.intro h2{font-size:clamp(28px,4vw,40px);margin:5px 0}
-.intro p{color:var(--muted);margin:0}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
-.filter-button{background:transparent;border:1px solid var(--line);color:var(--brown);padding:9px 15px;border-radius:30px;font-size:12px}
-.filter-button.active{background:var(--brown);border-color:var(--brown);color:white}
-.tools{display:flex;gap:12px;align-items:center;margin:20px 0 24px}
-.tools input{flex:1;min-width:0;padding:13px 15px;border:1px solid var(--line);border-radius:3px;background:var(--paper);color:var(--brown)}
-.tools select{width:auto;max-width:45%;padding:12px;border:1px solid var(--line);background:var(--paper);color:var(--brown);border-radius:3px}
-.results{font-size:12px;color:var(--muted);margin-bottom:14px}
-.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
-.card{min-width:0;background:var(--paper);border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 10px 25px #35241e0b}
-.product-photo{position:relative;aspect-ratio:1.2/1;background:#eee5d6;overflow:hidden}
-.product-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.photo-fallback{display:flex;width:100%;height:100%;align-items:center;justify-content:center;font-size:65px}
-.tag{display:inline-block;color:#896a3f;border:1px solid #e5d3b4;padding:3px 9px;font-size:10px;letter-spacing:1px;text-transform:uppercase}
-.card-body{padding:17px}
-.card h3{font-family:Georgia,serif;font-size:22px;line-height:1.25;font-weight:normal;margin:12px 0 7px}
-.card p{font-size:13px;color:var(--muted);margin:5px 0 13px}
-.price{font-weight:bold;color:#96713e;font-size:15px;margin:12px 0}
-label{display:block;font-size:12px;font-weight:bold;margin:12px 0 5px}
-select,input[type=number],input[type=text]{width:100%;min-width:0;padding:10px;border:1px solid var(--line);background:#fffefa;color:var(--brown);border-radius:2px}
-.flavour-line{display:flex;align-items:center;gap:8px;margin:9px 0;font-size:13px}
-.flavour-line input{width:80px;margin-left:auto}
-.add-cart,.primary-button,.secondary-button{border:0;padding:12px 15px;font-size:12px;font-weight:bold}
-.add-cart,.primary-button{background:var(--green);color:white}
-.add-cart{width:100%;margin-top:10px}
-.add-cart:hover,.primary-button:hover,.header-link:hover{background:var(--green-dark)}
-.cart-section{margin:55px 0 15px;padding:clamp(18px,4vw,32px);background:var(--paper);border:1px solid var(--line)}
-.cart-heading{font-family:Georgia,serif;font-size:30px;font-weight:normal;margin:0}
-.cart-subtitle{color:var(--muted);font-size:13px}
-.cart-item{display:flex;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid var(--line)}
-.cart-item-details{flex:1;min-width:0;overflow-wrap:anywhere}
-.cart-item-details strong{display:block;font-size:14px}
-.cart-item-details small{display:block;color:var(--muted);font-size:12px}
-.remove-button{background:#eee5d8;border:0;padding:8px 10px;color:var(--brown);font-size:11px}
-.total-area{margin:23px 0 10px;padding-top:15px;border-top:1px solid var(--line)}
-.total-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:10px 0}
-.total-row .amount{font-size:20px;font-weight:bold}
-.deposit-row{background:#f2eadb;padding:14px}
-.deposit-row .amount{color:var(--green-dark);font-size:24px}
-.cart-note{font-size:12px;color:var(--muted)}
-.cart-actions{display:grid;grid-template-columns:1fr 1.5fr;gap:10px;margin-top:20px}
-.secondary-button{background:#e9dfd0;color:var(--brown)}
-.empty-cart{padding:15px 0;color:var(--muted);font-size:14px}
-footer{margin-top:45px;text-align:center;background:#33241e;color:#f7eee2;padding:36px 15px}
-footer h2{font-family:Georgia,serif;font-weight:normal}
-footer p{font-size:12px;color:#d9c6ad}
-footer a{color:#e4c89a}
-.floating-whatsapp{position:fixed;right:17px;bottom:17px;z-index:15;background:var(--green);color:white;text-decoration:none;padding:13px 17px;border-radius:40px;font-size:12px;font-weight:bold;box-shadow:0 4px 15px #0002}
-@media(max-width:850px){.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.hero{min-height:300px}}
-@media(max-width:520px){
- .header-inner{padding:12px 14px}.brand h1{font-size:19px}.brand p{font-size:8px;letter-spacing:2px}
- .header-link{padding:10px 12px;font-size:11px}
- main{padding:14px}.hero{min-height:280px}.hero-content{padding:25px 21px}
- .hero p{font-size:13px}.intro{padding:34px 5px 15px}
- .products{gap:10px}.product-photo{aspect-ratio:1/1}
- .card-body{padding:10px}.card h3{font-size:18px}
- .card p{font-size:12px}.card .tag{font-size:9px}
- .card select,.card input{font-size:12px;padding:9px}
- .price{font-size:13px}.add-cart{padding:11px 5px;font-size:11px}
- .filters{gap:6px}.filter-button{padding:8px 10px;font-size:11px}
- .tools{gap:7px}.tools input{padding:10px;font-size:12px}
- .tools select{font-size:11px;padding:9px;max-width:42%}
- .cart-actions{grid-template-columns:1fr}
- .floating-whatsapp{right:10px;bottom:10px}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--brown);
+}
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+.topbar {
+  background: #35241E;
+  color: #F9E8CE;
+  text-align: center;
+  padding: 10px 12px;
+  font-size: 12px;
+  letter-spacing: 1.3px;
+}
+header {
+  background: #FBF7EF;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #E8DCCB;
+}
+.brand {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: bold;
+  line-height: 1.15;
+}
+.brand span { color: #9C7047; }
+.brand small {
+  display: block;
+  font: 10px Arial, sans-serif;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  color: #8A7665;
+}
+.cart-button, .btn {
+  border: 0;
+  background: var(--mocha-dark);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 17px;
+  font-weight: bold;
+}
+.cart-button { white-space: nowrap; }
+.hero {
+  background: linear-gradient(115deg, #38251F, #604332 70%, #896548);
+  color: #FFF8EE;
+  padding: 58px 7% 55px;
+  position: relative;
+  overflow: hidden;
+}
+.hero:after {
+  content: "✦";
+  position: absolute;
+  right: 7%;
+  top: 10px;
+  color: #D7B47E;
+  font-size: 110px;
+  opacity: .24;
+}
+.hero-inner { max-width: 900px; margin: auto; position: relative; z-index: 1; }
+.eyebrow {
+  color: #E4C28E;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  font-weight: bold;
+}
+.hero h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(34px, 6vw, 57px);
+  line-height: 1.12;
+  margin: 15px 0;
+  max-width: 650px;
+}
+.hero h1 span { color: #E3BC80; font-style: italic; }
+.hero p {
+  color: #EADBCD;
+  line-height: 1.8;
+  max-width: 520px;
+  font-size: 15px;
+}
+.hero .btn {
+  display: inline-block;
+  margin-top: 12px;
+  background: #D2AA70;
+  color: #35241E;
+  text-decoration: none;
+}
+.hero-note {
+  font-size: 11px;
+  color: #DCC6AE;
+  margin-top: 23px;
+  letter-spacing: 1.5px;
+}
+.menu-area {
+  /* TONE BACKGROUND MENU: MOCHA */
+  background: #B49A7D;
+  padding: 35px 4% 50px;
+}
+.section-head {
+  max-width: 1150px;
+  margin: 0 auto 24px;
+}
+.section-head .eyebrow { color: #654630; }
+.section-head h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 4vw, 38px);
+  margin: 8px 0;
+  color: #3D2A20;
+}
+.section-head p {
+  color: #594536;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.controls {
+  max-width: 1150px;
+  margin: 0 auto 23px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.controls input, .controls select {
+  background: #FFFDF9;
+  border: 1px solid #D4BEA6;
+  border-radius: 9px;
+  padding: 12px 13px;
+  color: #493329;
+  min-width: 0;
+}
+.controls input { flex: 1 1 200px; }
+.controls select { flex: 0 1 190px; }
+.filters {
+  max-width: 1150px;
+  margin: 0 auto 25px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  background: rgba(255,255,255,.48);
+  color: #493329;
+  border: 1px solid rgba(89,63,44,.23);
+  border-radius: 30px;
+  padding: 9px 15px;
+  font-size: 13px;
+}
+.filter-btn.active {
+  background: #493329;
+  color: #FFF7ED;
+  border-color: #493329;
+}
+.product-grid {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: #FFFDF9;
+  border: 1px solid rgba(88,59,39,.12);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 5px 16px rgba(67,43,28,.09);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.photo {
+  position: relative;
+  height: 205px;
+  background: #E8D7C2;
+  overflow: hidden;
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.photo-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  background: linear-gradient(145deg, #E9D6BE, #C7A98A);
+}
+.product-content {
+  padding: 17px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.product-category {
+  color: #9A7046;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.product-content h3 {
+  font-family: Georgia, serif;
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 8px 0;
+}
+.description {
+  color: #79685A;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+.price {
+  font-size: 19px;
+  font-weight: bold;
+  margin: auto 0 13px;
+  padding-top: 8px;
+  color: #68462F;
+}
+.price small {
+  font-size: 11px;
+  font-weight: normal;
+  color: #817064;
+}
+.variant-label {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 4px 0 6px;
+}
+.product-select, .quantity {
+  width: 100%;
+  padding: 10px;
+  background: #FFF;
+  border: 1px solid #DCCDBD;
+  border-radius: 7px;
+  color: #493329;
+  margin-bottom: 10px;
+}
+.add-button {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  background: #493329;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  margin-top: auto;
+}
+.add-button:hover, .btn:hover, .cart-button:hover { opacity: .9; }
+.no-results {
+  max-width: 1150px;
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+  color: #493329;
+  display: none;
+}
+.order-area {
+  padding: 45px 5%;
+  background: #F8F2E8;
+}
+.order-box {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  border: 1px solid #E6D7C5;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 5px 18px rgba(67,43,28,.06);
+}
+.order-box h2 {
+  font-family: Georgia, serif;
+  margin-top: 0;
+  font-size: 28px;
+}
+.cart-empty { color: #857568; font-size: 14px; }
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #EEE3D7;
+  padding: 12px 0;
+  font-size: 13px;
+}
+.cart-item strong { display: block; margin-bottom: 4px; }
+.remove-btn {
+  border: 0;
+  background: transparent;
+  color: #9A493A;
+  padding: 4px;
+}
+.totals {
+  border-top: 1px solid #E2D3C2;
+  margin-top: 15px;
+  padding-top: 15px;
+}
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5px 0;
+  font-size: 14px;
+}
+.total-row.deposit {
+  font-size: 19px;
+  font-weight: bold;
+  color: #68462F;
+  padding-top: 12px;
+}
+.cart-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #766557;
+  margin: 12px 0;
+}
+.customer-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+.customer-fields input, .customer-fields textarea {
+  width: 100%;
+  border: 1px solid #DCCDBD;
+  border-radius: 8px;
+  padding: 12px;
+  background: #FFFEFC;
+}
+.customer-fields textarea { grid-column: 1 / -1; min-height: 75px; resize: vertical; }
+.whatsapp-button {
+  width: 100%;
+  margin-top: 15px;
+  border: 0;
+  background: #277A48;
+  color: white;
+  padding: 15px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+footer {
+  background: #35241E;
+  color: #EADBCD;
+  text-align: center;
+  padding: 30px 15px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+footer strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 21px;
+  color: #E3BC80;
+  margin-bottom: 7px;
+}
+@media (max-width: 800px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+  .photo { height: 165px; }
+  .product-content { padding: 13px; }
+  .product-content h3 { font-size: 17px; }
+  .menu-area { padding-left: 4%; padding-right: 4%; }
+}
+@media (max-width: 430px) {
+  header { padding: 15px 4%; }
+  .brand { font-size: 20px; }
+  .cart-button { padding: 10px 11px; font-size: 12px; }
+  .hero { padding: 43px 6%; }
+  .product-grid { gap: 10px; }
+  .photo { height: 135px; }
+  .product-content { padding: 10px; }
+  .product-content h3 { font-size: 16px; }
+  .description { font-size: 11px; }
+  .price { font-size: 17px; }
+  .add-button { font-size: 12px; padding: 11px 5px; }
+  .customer-fields { grid-template-columns: 1fr; }
+  .customer-fields textarea { grid-column: auto; }
 }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand">
-      <h1>Kunyah-Kunyah by NaZ</h1>
-      <p>ARTISAN BAKERY · MADE WITH LOVE</p>
-    </div>
-    <a class="header-link" href="https://wa.me/60163160468" target="_blank" rel="noopener">WhatsApp ↗</a>
+<div class="topbar">HOMEMADE WITH LOVE · FRESHLY BAKED FOR YOU</div>
+
+<header>
+  <div class="brand">Kunyah-Kunyah <span>by NaZ</span>
+    <small>MANISNYA SETIAP GIGITAN</small>
   </div>
+  <button class="cart-button" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+    🛒 Troli (<span id="cart-count">0</span>)
+  </button>
 </header>
 
-<main>
 <section class="hero">
-  <img src="hero.PNG" alt="Kunyah-Kunyah by NaZ" onerror="this.style.display='none'">
-  <div class="hero-content">
-    <span class="eyebrow">A little sweetness, a lot of love</span>
-    <h2>Manisnya setiap gigitan.</h2>
-    <p>Hidangan homemade yang dibuat dengan penuh kasih untuk melengkapkan setiap momen istimewa anda.</p>
-    <a class="hero-btn" href="#menu">TEROKAI MENU ↓</a>
+  <div class="hero-inner">
+    <div class="eyebrow">HOMEMADE · FRESH · MADE WITH LOVE</div>
+    <h1>A little sweetness,<br><span>a lot of love.</span></h1>
+    <p>Temani hari istimewa anda dengan pilihan kek, brownies dan manisan homemade yang dibuat khas untuk setiap gigitan.</p>
+    <a href="#menu" class="btn">JELAJAHI MENU ↗</a>
+    <div class="hero-note">KEK PISANG · BROWNIES · DESSERTS · MUFFIN</div>
   </div>
 </section>
 
-<section class="intro" id="menu">
-  <span class="eyebrow">Our Collection</span>
-  <h2>Menu Pilihan Kami</h2>
-  <p>Pilih kegemaran anda, kami sediakan dengan penuh rasa.</p>
-</section>
-
-<div class="filters" aria-label="Kategori produk">
-  <button class="filter-button active" data-filter="Semua">Semua Menu</button>
-  <button class="filter-button" data-filter="Kek">Kek</button>
-  <button class="filter-button" data-filter="Brownies">Brownies</button>
-  <button class="filter-button" data-filter="Cheesekut">Cheesekut</button>
-  <button class="filter-button" data-filter="Muffin">Muffin</button>
-  <button class="filter-button" data-filter="Hokkaido">Hokkaido Muffin</button>
-  <button class="filter-button" data-filter="Cheesecake">Cheesecake</button>
-  <button class="filter-button" data-filter="Cream Puff">Baby Creampuff</button>
-</div>
-
-<div class="tools">
-  <input id="search" type="text" placeholder="Cari menu kegemaran..." aria-label="Cari produk">
-  <select id="sort" aria-label="Susun produk">
-    <option value="default">Susunan asal</option>
-    <option value="low">Harga terendah</option>
-    <option value="high">Harga tertinggi</option>
-    <option value="az">Nama A–Z</option>
-  </select>
-</div>
-<div class="results" id="results"></div>
-<section class="products" id="products"></section>
-
-<section class="cart-section" id="cart">
-  <h2 class="cart-heading">Pesanan Anda</h2>
-  <p class="cart-subtitle">Semak pilihan anda sebelum menghantar pesanan.</p>
-  <p>🛍️ Item dalam cart: <strong id="cart-count">0</strong></p>
-  <div id="cart-items"><p class="empty-cart">Cart anda masih kosong.</p></div>
-  <p id="cart-pieces" class="cart-note"></p>
-
-  <div class="total-area">
-    <div class="total-row">
-      <span>Jumlah pesanan</span>
-      <span class="amount" id="cart-total">RM0.00</span>
-    </div>
-    <div class="total-row deposit-row">
-      <span><strong>Deposit 50%</strong><br><small>Perlu bank in</small></span>
-      <span class="amount" id="cart-deposit">RM0.00</span>
-    </div>
+<main id="menu" class="menu-area">
+  <div class="section-head">
+    <div class="eyebrow">OUR HOMEMADE COLLECTION</div>
+    <h2>Menu Pilihan Kami</h2>
+    <p>Pilih kegemaran anda, masukkan ke troli dan buat tempahan melalui WhatsApp.</p>
   </div>
 
-  <p id="cart-note" class="cart-note"></p>
-  <div class="cart-actions">
-    <button class="secondary-button" id="clear-cart" type="button">Kosongkan Cart</button>
-    <button class="primary-button" id="order-whatsapp" type="button">Teruskan ke WhatsApp ↗</button>
+  <div class="controls">
+    <input id="search" type="search" placeholder="🔎 Cari kek, brownies, muffin..." oninput="renderProducts()">
+    <select id="sort" onchange="renderProducts()" aria-label="Susun menu">
+      <option value="default">Susunan asal</option>
+      <option value="low">Harga terendah</option>
+      <option value="high">Harga tertinggi</option>
+      <option value="az">Nama A–Z</option>
+    </select>
   </div>
-</section>
+
+  <div class="filters" id="filters"></div>
+  <div class="product-grid" id="products"></div>
+  <div class="no-results" id="no-results">Tiada produk dijumpai. Cuba carian lain.</div>
 </main>
 
+<section class="order-area" id="order">
+  <div class="order-box">
+    <h2>Troli Tempahan</h2>
+    <p class="cart-empty" id="empty-cart">Troli anda masih kosong. Pilih produk daripada menu di atas.</p>
+    <div id="cart-items"></div>
+
+    <div class="totals">
+      <div class="total-row"><span>Jumlah produk</span><strong id="subtotal">RM0.00</strong></div>
+      <div class="total-row deposit"><span>Deposit 50%</span><span id="deposit">RM0.00</span></div>
+    </div>
+    <p class="cart-note">
+      Deposit 50% dikira berdasarkan produk yang mempunyai harga tetap. Produk bertanda “Sila tanya” perlu pengesahan harga terlebih dahulu. Baki bayaran akan disahkan bersama pihak kami.
+    </p>
+
+    <div class="customer-fields">
+      <input id="customer-name" type="text" placeholder="Nama anda *" autocomplete="name">
+      <input id="customer-phone" type="tel" placeholder="No. telefon">
+      <textarea id="customer-note" placeholder="Nota tempahan, tarikh diperlukan atau permintaan khas..."></textarea>
+    </div>
+    <button class="whatsapp-button" onclick="sendOrder()">HANTAR TEMPAHAN MELALUI WHATSAPP ↗</button>
+    <p class="cart-note">Tempahan akan dibuka dalam WhatsApp untuk anda semak dan hantar.</p>
+  </div>
+</section>
+
 <footer>
-  <h2>Kunyah-Kunyah by NaZ</h2>
-  <p>MANISNYA SETIAP GIGITAN</p>
-  <p>Homemade with love, made for your special moments.</p>
-  <a href="https://wa.me/60163160468" target="_blank" rel="noopener">Hubungi kami melalui WhatsApp</a>
+  <strong>Kunyah-Kunyah by NaZ</strong>
+  Manisnya rasa, istimewanya setiap gigitan.<br>
+  Homemade with love.
 </footer>
 
-<a class="floating-whatsapp" href="https://wa.me/60163160468" target="_blank" rel="noopener">WhatsApp ↗</a>
-
 <script>
-"use strict";
-
-const WHATSAPP_NUMBER = "60163160468";
-const CART_KEY = "kunyahkunyah_cart_v3";
-
 const products = [
- {id:"pisang",name:"Kek Pisang",category:"Kek",image:"kek-pisang.JPG",emoji:"🍌",description:"Kek pisang homemade dengan pilihan topping dan cheese.",options:[
- ["Classic",30],["Chocolate",35],["Double Choc. (Extra Choc Drizzle)",38],["2 Benua (Classic + Choc.)",35],["Classic Cheese (Full)",40],["Choc. Cheese (Full)",46],["2 Benua Cheese (Full)",46],["2 Benua Cheese (Half)",44]],topping:true},
- {id:"brownies",name:"Brownies 8×8 Inch",category:"Brownies",image:"brownies.JPG",emoji:"🍫",description:"36 pcs setiap kotak. Pilih flavour kegemaran anda.",options:[
- ["Plain",35],["Hazelnut / Biscoff Spread (Can Mix)",44],["Hazelnut Spread + Nuts",50],["Hazelnut Spread + Biscoff Crumb",50],["Biscoff Spread + Nuts",50],["Biscoff Spread + Biscoff Crumb",50],["Cadbury",60],["KitKat",60],["Oreo Crumb",47],["Mix Flavour (4 Flavours)",58]]},
- {id:"redvelvet",name:"Brownies Red Velvet Cheese",category:"Brownies",image:"brownies-red-velvet-cheese.JPG",emoji:"❤️",description:"Brownies red velvet dengan cheese. Saiz 8 inch.",options:[["8 inch",62]]},
- {id:"batik",name:"Kek Batik Ganache",category:"Kek",image:"kek-batik-ganache.JPG",emoji:"🍫",description:"Kek batik dengan topping ganache coklat.",options:[["8 inch",55],["6 inch",35],["Mini 4 oz",3]]},
- {id:"cheesekut",name:"Mini Cheesekut 4 oz",category:"Cheesekut",image:"mini.cheesekut.jpg",emoji:"🧀",description:"Mini cheesekut dalam pilihan Oreo, Biscoff dan Nestum. RM2 sebiji.",flavours:[["Oreo",2],["Biscoff",2],["Nestum",2]]},
- {id:"muffinpisang",name:"Muffin Pisang",category:"Muffin",image:"muffin.jpg",emoji:"🧁",description:"Muffin pisang homemade. 50 pcs untuk setiap set.",options:[["Original — 50 pcs",30,50],["Chocolate — 50 pcs",35,50]]},
- {id:"muffinchoc",name:"Muffin Chocolate Moist",category:"Muffin",image:"muffin-chocolate-moist.JPG",emoji:"🧁",description:"Muffin coklat moist yang lembut. 50 pcs setiap set.",options:[["50 pcs",52,50]]},
- {id:"hokkaido",name:"Hokkaido Muffin",category:"Hokkaido",image:"hokkaido-muffin.JPG",emoji:"🧁",description:"Pilih set yang sesuai dengan keperluan anda.",options:[["Set Mini — 7 pcs",12,7],["Set Regular — 16 pcs",25,16],["Set Family — 25 pcs",38,25],["Set Party — 50 pcs",77,50],["Set Celebration — 75 pcs",116,75],["Set Grand — 100 pcs",150,100]]},
- {id:"cheesecake",name:"Cheesecake",category:"Cheesecake",image:"cheesecake.JPG",emoji:"🍰",description:"Cheesecake homemade. Hubungi kami untuk pilihan dan harga.",unpriced:true},
- {id:"creampuff",name:"Baby Creampuff",category:"Cream Puff",image:"creampuff.JPG",emoji:"🍮",description:"Pilih pek dan kuantiti yang anda mahu.",options:[["15 biji",10,15],["25 biji",16,25],["50 biji",31,50]]}
+  {
+    id:"pisang", name:"Kek Pisang", category:"Kek",
+    image:"kek-pisang.JPG", emoji:"🍌",
+    description:"Pilihan kek pisang dengan pelbagai topping dan gabungan rasa.",
+    options:[
+      ["Classic",30],["Chocolate",35],
+      ["Double Choc. (Extra Choc Drizzle)",38],
+      ["2 Benua (Classic + Choc.)",35],
+      ["Classic Cheese (Full)",40],
+      ["Choc. Cheese (Full)",46],
+      ["2 Benua Cheese (Full)",46],
+      ["2 Benua Cheese (Half)",44]
+    ],
+    topping:true
+  },
+  {
+    id:"brownies", name:"Brownies 8 × 8 Inch", category:"Brownies",
+    image:"brownies.JPG", emoji:"🍫",
+    description:"Brownies potongan 36 pcs. Pilih perisa kegemaran anda.",
+    options:[
+      ["Plain",35],
+      ["Hazelnut / Biscoff Spread (Can Mix)",44],
+      ["Hazelnut Spread + Nuts",50],
+      ["Hazelnut Spread + Biscoff Crumb",50],
+      ["Biscoff Spread + Nuts",50],
+      ["Biscoff Spread + Biscoff Crumb",50],
+      ["Cadbury",60],["KitKat",60],
+      ["Oreo Crumb",47],["Mix Flavour (4 Flavours)",58]
+    ]
+  },
+  {
+    id:"redvelvet", name:"Brownies Red Velvet Cheese", category:"Brownies",
+    image:"brownies-red-velvet-cheese.JPG", emoji:"❤️",
+    description:"Brownies red velvet dengan cheese. Saiz 8 inch.",
+    options:[["8 Inch",62]]
+  },
+  {
+    id:"batik", name:"Kek Batik Ganache", category:"Kek",
+    image:"kek-batik-ganache.JPG", emoji:"🍰",
+    description:"Kek batik dengan ganache, sesuai untuk dikongsi.",
+    options:[["8 Inch",55],["6 Inch",35],["Mini 4 oz (1 pcs)",3]]
+  },
+  {
+    id:"cheesekut", name:"Mini Cheesekut", category:"Dessert",
+    image:"mini.cheesekut.jpg", emoji:"🍮",
+    description:"Mini cheesekut 4 oz. Harga setiap satu.",
+    options:[["Oreo",2],["Biscoff",2],["Nestum",2]]
+  },
+  {
+    id:"muffinpisang", name:"Muffin Pisang", category:"Muffin",
+    image:"muffin.jpg", emoji:"🧁",
+    description:"Set 50 pcs. Pilih perisa original atau chocolate.",
+    options:[["Original — 50 pcs",30],["Chocolate — 50 pcs",35]]
+  },
+  {
+    id:"muffinchoc", name:"Muffin Chocolate Moist", category:"Muffin",
+    image:"muffin-chocolate-moist.JPG", emoji:"🧁",
+    description:"Set 50 pcs muffin chocolate moist.",
+    options:[["50 pcs / set",52]]
+  },
+  {
+    id:"hokkaido", name:"Hokkaido Muffin", category:"Muffin",
+    image:"hokkaido-muffin.JPG", emoji:"🧁",
+    description:"Pelbagai pilihan set untuk keluarga dan majlis.",
+    options:[
+      ["Mini — 7 pcs",12],
+      ["Regular — 16 pcs",25],
+      ["Family — 25 pcs",38],
+      ["Party — 50 pcs",77],
+      ["Celebration — 75 pcs",116],
+      ["Grand — 100 pcs",150]
+    ]
+  },
+  {
+    id:"creampuff", name:"Baby Creampuff", category:"Dessert",
+    image:"creampuff.JPG", emoji:"🍥",
+    description:"Baby creampuff untuk hidangan keluarga atau majlis.",
+    options:[["15 pcs",10],["25 pcs",16],["50 pcs",31]]
+  },
+  {
+    id:"cheesecake", name:"Cheesecake", category:"Kek",
+    image:"cheesecake.JPG", emoji:"🍰",
+    description:"Untuk pilihan perisa, saiz dan harga, sila hubungi kami.",
+    options:[["Harga perlu disahkan",null]]
+  }
 ];
 
+const categories = ["Semua","Kek","Brownies","Dessert","Muffin"];
+let activeCategory = "Semua";
 let cart = [];
-try {
- const saved = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
- if(Array.isArray(saved)) cart = saved;
-} catch(e) { cart = []; }
 
-let activeFilter = "Semua";
+function money(n) {
+  return "RM" + Number(n).toFixed(2);
+}
 
-function money(n){return "RM"+Number(n).toFixed(2)}
-function safe(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function getPrice(p) {
+  return p.options.reduce((min, o) => {
+    if (o[1] == null) return min;
+    return min == null ? o[1] : Math.min(min, o[1]);
+  }, null);
+}
 
-function renderProducts(){
- const search = document.getElementById("search").value.trim().toLowerCase();
- const sort = document.getElementById("sort").value;
- let list = products.filter(p =>
-   (activeFilter==="Semua" || p.category===activeFilter) &&
-   (p.name.toLowerCase().includes(search) || p.description.toLowerCase().includes(search))
- );
+function renderFilters() {
+  document.getElementById("filters").innerHTML = categories.map(c =>
+    `<button class="filter-btn ${c===activeCategory?"active":""}" onclick="setCategory('${c}')">${c}</button>`
+  ).join("");
+}
 
- if(sort==="low") list.sort((a,b)=>minPrice(a)-minPrice(b));
- if(sort==="high") list.sort((a,b)=>minPrice(b)-minPrice(a));
- if(sort==="az") list.sort((a,b)=>a.name.localeCompare(b.name,"ms"));
+function setCategory(c) {
+  activeCategory = c;
+  renderFilters();
+  renderProducts();
+}
 
- document.getElementById("results").textContent = `${list.length} menu dipaparkan`;
- const container = document.getElementById("products");
- container.innerHTML = "";
+function renderProducts() {
+  const query = document.getElementById("search").value.toLowerCase().trim();
+  const sort = document.getElementById("sort").value;
+  let list = products.filter(p =>
+    (activeCategory === "Semua" || p.category === activeCategory) &&
+    (p.name + " " + p.category + " " + p.description + " " +
+      p.options.map(o => o[0]).join(" ")).toLowerCase().includes(query)
+  );
 
- list.forEach(p=>{
-  const card = document.createElement("article");
-  card.className = "card";
-  let options = "";
+  if (sort === "low") list.sort((a,b) => (getPrice(a) ?? Infinity) - (getPrice(b) ?? Infinity));
+  if (sort === "high") list.sort((a,b) => (getPrice(b) ?? -Infinity) - (getPrice(a) ?? -Infinity));
+  if (sort === "az") list.sort((a,b) => a.name.localeCompare(b.name));
 
-  if(p.flavours){
-   options = p.flavours.map(f=>`
-    <label>${safe(f[0])} — ${money(f[1])} / pcs</label>
-    <input class="flavour-qty" type="number" min="0" value="0" data-flavour="${safe(f[0])}" data-price="${f[1]}">`).join("");
-  } else if(p.options){
-   options = `<label>Pilihan</label><select class="variant">${
-    p.options.map((o,i)=>`<option value="${i}" data-price="${o[1]}" data-pieces="${o[2]||""}">${safe(o[0])} — ${money(o[1])}${o[2]?" ("+o[2]+" pcs)":""}</option>`).join("")
-   }</select>`;
-  } else {
-   options = `<label>Flavour / catatan</label><input class="note" type="text" placeholder="Contoh: Original">`;
-  }
+  document.getElementById("no-results").style.display = list.length ? "none" : "block";
 
-  card.innerHTML = `
-   <div class="product-photo">
-    <img src="${safe(p.image)}" alt="${safe(p.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-    <span class="photo-fallback" style="display:none">${p.emoji}</span>
-   </div>
-   <div class="card-body">
-    <span class="tag">${safe(p.category)}</span>
-    <h3>${safe(p.name)}</h3>
-    <p>${safe(p.description)}</p>
-    ${options}
-    ${!p.flavours?`<label>Kuantiti ${p.unpriced?"":p.id==="batik"?"unit / pcs":"unit / set"}</label><input class="quantity" type="number" min="1" value="1">`:""}
-    <div class="price">${p.unpriced?"Harga: Sila tanya":""}</div>
-    <button class="add-cart" type="button">Tambah ke Cart</button>
-   </div>`;
+  document.getElementById("products").innerHTML = list.map(p => {
+    const opts = p.options.map((o,i) =>
+      `<option value="${i}">${o[0]}${o[1] == null ? " — Sila tanya" : " — "+money(o[1])}</option>`
+    ).join("");
 
-  const priceBox = card.querySelector(".price");
-  const update = ()=>{
-   if(p.flavours){
-    let q=0,total=0;
-    card.querySelectorAll(".flavour-qty").forEach(i=>{const n=Math.max(0,parseInt(i.value)||0);q+=n;total+=n*Number(i.dataset.price)});
-    priceBox.textContent=q?`${q} pcs — ${money(total)}`:"RM2 sebiji";
-   } else if(p.unpriced){priceBox.textContent="Harga: Sila tanya"}
-   else {
-    const o=card.querySelector(".variant").selectedOptions[0];
-    const q=Math.max(1,parseInt(card.querySelector(".quantity").value)||1);
-    priceBox.textContent=`${q} × ${money(o.dataset.price)} = ${money(q*Number(o.dataset.price))}`;
-   }
-  };
-  card.querySelectorAll("select,input").forEach(el=>{el.addEventListener("input",update);el.addEventListener("change",update)});
-  card.querySelector(".add-cart").addEventListener("click",()=>{
-   if(p.flavours){
-    let added=0;
-    card.querySelectorAll(".flavour-qty").forEach(i=>{
-     const q=Math.max(0,parseInt(i.value)||0);
-     if(q){cart.push({id:Date.now()+Math.random(),product:p.name,variant:i.dataset.flavour,quantity:q,price:Number(i.dataset.price),pieces:null});added++;i.value=0}
-    });
-    if(!added){alert("Sila masukkan kuantiti flavour terlebih dahulu.");return}
-   } else {
-    let variant="",price=null,pieces=null;
-    if(p.options){
-     const o=card.querySelector(".variant").selectedOptions[0];
-     variant=p.options[Number(o.value)][0];
-     price=Number(o.dataset.price);
-     pieces=o.dataset.pieces?Number(o.dataset.pieces):null;
-    } else {
-     variant=card.querySelector(".note").value.trim();
-    }
-    if(p.id==="pisang") variant += (variant?" | ":"")+"Topping: "+(card.querySelector(".topping")?.value||"Choc. Chunk");
-    const q=Math.max(1,parseInt(card.querySelector(".quantity").value)||1);
-    cart.push({id:Date.now()+Math.random(),product:p.name,variant,quantity:q,price,pieces});
-   }
-   saveAndRender();
-   document.getElementById("cart").scrollIntoView({behavior:"smooth",block:"start"});
+    const prices = p.options.map(o=>o[1]).filter(v=>v!=null);
+    const min = prices.length ? Math.min(...prices) : null;
+    const max = prices.length ? Math.max(...prices) : null;
+    let priceText = min == null ? "Sila tanya" :
+      min === max ? money(min) : `${money(min)} – ${money(max)}`;
+
+    return `
+      <article class="product-card" data-id="${p.id}">
+        <div class="photo">
+          <img src="${p.image}" alt="${p.name}" loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="photo-fallback">${p.emoji}</div>
+        </div>
+        <div class="product-content">
+          <div class="product-category">${p.category}</div>
+          <h3>${p.name}</h3>
+          <p class="description">${p.description}</p>
+          <div class="price">${priceText}${p.id==="brownies" ? ' <small>/ set</small>' : ""}</div>
+          <label class="variant-label" for="variant-${p.id}">Pilihan</label>
+          <select class="product-select variant-select" id="variant-${p.id}">${opts}</select>
+          ${p.topping ? `
+            <label class="variant-label" for="topping-${p.id}">Topping tambahan</label>
+            <select class="product-select topping-select" id="topping-${p.id}">
+              <option value="Tiada">Tiada</option>
+              <option value="Choc. Chunk">Choc. Chunk</option>
+              <option value="Pisang Slice">Pisang Slice</option>
+            </select>` : ""}
+          <label class="variant-label" for="qty-${p.id}">Kuantiti</label>
+          <input class="quantity" type="number" id="qty-${p.id}" min="1" max="99" value="1">
+          <button class="add-button" onclick="addToCart('${p.id}')">＋ Tambah ke Troli</button>
+        </div>
+      </article>`;
+  }).join("");
+}
+
+function addToCart(id) {
+  const p = products.find(x=>x.id===id);
+  const card = document.querySelector(`[data-id="${id}"]`);
+  const index = Number(card.querySelector(".variant-select").value);
+  const option = p.options[index];
+  const qty = Math.max(1, Math.min(99, Number(card.querySelector(".quantity").value)||1));
+  const toppingEl = card.querySelector(".topping-select");
+  const topping = toppingEl ? toppingEl.value : "";
+  const key = id + "-" + index + "-" + topping;
+
+  const existing = cart.find(x=>x.key===key);
+  if (existing) existing.qty += qty;
+  else cart.push({
+    key, id, name:p.name, option:option[0],
+    price:option[1], qty, topping
   });
-  if(p.id==="pisang"){
-   const select=document.createElement("select");
-   select.className="topping";
-   select.innerHTML='<option>Choc. Chunk</option><option>Pisang Slice</option>';
-   const label=document.createElement("label");label.textContent="Pilihan topping";
-   const variantLabel=card.querySelector("label");
-   variantLabel.parentNode.insertBefore(label,variantLabel.nextSibling);
-   label.after(select);
+  renderCart();
+  document.getElementById("order").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function removeItem(key) {
+  cart = cart.filter(x=>x.key!==key);
+  renderCart();
+}
+
+function changeQty(key, value) {
+  const item = cart.find(x=>x.key===key);
+  if (!item) return;
+  item.qty = Math.max(1, Math.min(99, Number(value)||1));
+  renderCart();
+}
+
+function renderCart() {
+  const count = cart.reduce((s,x)=>s+x.qty,0);
+  const subtotal = cart.reduce((s,x)=>s+(x.price==null?0:x.price*x.qty),0);
+  const needsQuote = cart.some(x=>x.price==null);
+
+  document.getElementById("cart-count").textContent = count;
+  document.getElementById("subtotal").textContent = money(subtotal);
+  document.getElementById("deposit").textContent = money(subtotal*.5);
+  document.getElementById("empty-cart").style.display = cart.length ? "none" : "block";
+
+  document.getElementById("cart-items").innerHTML = cart.map(x=>`
+    <div class="cart-item">
+      <div>
+        <strong>${x.name}</strong>
+        <div>${x.option}</div>
+        ${x.topping && x.topping!=="Tiada" ? `<div>Topping: ${x.topping}</div>` : ""}
+        <div>${x.price==null ? "Harga perlu disahkan" : money(x.price)+" × "+x.qty+" = "+money(x.price*x.qty)}</div>
+        <div style="margin-top:7px">
+          Kuantiti:
+          <input aria-label="Kuantiti ${x.name}" type="number" min="1" max="99" value="${x.qty}" style="width:65px;padding:5px;border:1px solid #DCCDBD;border-radius:5px" onchange="changeQty('${x.key}',this.value)">
+        </div>
+      </div>
+      <button class="remove-btn" onclick="removeItem('${x.key}')" aria-label="Buang item">Buang ✕</button>
+    </div>`).join("");
+
+  const note = document.querySelector(".order-box .cart-note");
+  if (note) {
+    // Keep the standard note; quote-only products are also shown in the order message.
   }
-  update();
-  container.appendChild(card);
- });
 }
 
-function minPrice(p){
- if(p.flavours)return 2;
- if(p.options)return Math.min(...p.options.map(o=>o[1]));
- return 0;
+function sendOrder() {
+  if (!cart.length) {
+    alert("Bro, troli masih kosong. Pilih produk dahulu.");
+    return;
+  }
+  const name = document.getElementById("customer-name").value.trim();
+  const phone = document.getElementById("customer-phone").value.trim();
+  const note = document.getElementById("customer-note").value.trim();
+
+  if (!name) {
+    alert("Sila masukkan nama anda dahulu.");
+    document.getElementById("customer-name").focus();
+    return;
+  }
+
+  const subtotal = cart.reduce((s,x)=>s+(x.price==null?0:x.price*x.qty),0);
+  const deposit = subtotal * .5;
+  const lines = cart.map((x,i) =>
+    `${i+1}. ${x.name}\n   Pilihan: ${x.option}\n` +
+    (x.topping && x.topping!=="Tiada" ? `   Topping: ${x.topping}\n` : "") +
+    `   Kuantiti: ${x.qty}\n` +
+    `   Harga: ${x.price==null ? "Sila sahkan harga" : money(x.price*x.qty)}`
+  );
+
+  let message =
+    `Hai Kunyah-Kunyah by NaZ! Saya ingin membuat tempahan.\n\n`+
+    `Nama: ${name}\n`+
+    (phone ? `No. telefon: ${phone}\n` : "")+
+    `\nSENARAI TEMPAHAN\n${lines.join("\n\n")}\n\n`+
+    `Jumlah produk berharga tetap: ${money(subtotal)}\n`+
+    `Deposit 50%: ${money(deposit)}\n`+
+    (cart.some(x=>x.price==null) ? `\nNota: Ada produk yang memerlukan pengesahan harga.\n` : "")+
+    (note ? `\nNota tambahan: ${note}\n` : "")+
+    `\nMohon sahkan tempahan dan cara pembayaran. Terima kasih!`;
+
+  window.open("https://wa.me/60163160468?text="+encodeURIComponent(message),"_blank");
 }
 
-function saveAndRender(){
- try{localStorage.setItem(CART_KEY,JSON.stringify(cart))}catch(e){}
- renderCart();
-}
-function removeItem(id){cart=cart.filter(i=>i.id!==id);saveAndRender()}
-function renderCart(){
- const box=document.getElementById("cart-items");box.innerHTML="";
- let total=0,count=0,pieces=0,unpriced=0;
- cart.forEach(item=>{
-  const q=Math.max(1,Number(item.quantity)||1);
-  const hasPrice=item.price!==null&&item.price!==undefined&&Number.isFinite(Number(item.price));
-  const sub=hasPrice?Number(item.price)*q:null;
-  if(hasPrice)total+=sub;else unpriced++;
-  count+=q;
-  if(item.pieces)pieces+=Number(item.pieces)*q;
-
-  const row=document.createElement("div");row.className="cart-item";
-  const details=document.createElement("div");details.className="cart-item-details";
-  const title=document.createElement("strong");title.textContent=item.product;
-  const desc=document.createElement("small");desc.textContent=(item.variant?item.variant+" · ":"")+q+" unit";
-  const amount=document.createElement("div");amount.textContent=hasPrice?money(sub):"Harga perlu disahkan";
-  details.append(title,desc,amount);
-  const remove=document.createElement("button");remove.className="remove-button";remove.type="button";remove.textContent="Buang";
-  remove.addEventListener("click",()=>removeItem(item.id));
-  row.append(details,remove);box.appendChild(row);
- });
- if(!cart.length)box.innerHTML='<p class="empty-cart">Cart anda masih kosong. Pilih menu untuk mula membuat pesanan.</p>';
- document.getElementById("cart-count").textContent=count;
- document.getElementById("cart-total").textContent=money(total);
- document.getElementById("cart-deposit").textContent=money(Math.round(total*50)/100);
- document.getElementById("cart-pieces").textContent=pieces?`Jumlah pcs bagi set yang dinyatakan: ${pieces} pcs`:"";
- document.getElementById("cart-note").textContent=unpriced?"Harga bagi produk tanpa harga belum termasuk dalam jumlah dan deposit. Sila sahkan melalui WhatsApp.":"Deposit dikira sebanyak 50% daripada jumlah harga yang diketahui.";
-}
-
-function orderWhatsApp(){
- if(!cart.length){alert("Cart kosong. Sila tambah produk dahulu.");return}
- let msg="Assalamualaikum Kunyah-Kunyah by NaZ! 😊\nSaya ingin membuat pesanan:\n\n";
- let total=0,unpriced=false;
- cart.forEach((item,i)=>{
-  const q=Math.max(1,Number(item.quantity)||1);
-  const hasPrice=item.price!==null&&item.price!==undefined&&Number.isFinite(Number(item.price));
-  const sub=hasPrice?Number(item.price)*q:null;
-  msg+=`${i+1}. ${item.product}\n`;
-  if(item.variant)msg+=`   Pilihan: ${item.variant}\n`;
-  msg+=`   Kuantiti: ${q}\n`;
-  if(item.pieces)msg+=`   Jumlah pcs: ${item.pieces*q}\n`;
-  if(hasPrice){msg+=`   Harga: ${money(sub)}\n`;total+=sub}
-  else{msg+="   Harga: Sila sahkan\n";unpriced=true}
-  msg+="\n";
- });
- msg+=`Jumlah harga yang diketahui: ${money(total)}\n`;
- msg+=`Deposit 50% (Perlu Bank In): ${money(Math.round(total*50)/100)}\n`;
- if(unpriced)msg+="Nota: Harga produk tanpa harga belum termasuk dalam jumlah.\n";
- msg+="\nNama pelanggan:\nTarikh/tempahan:\n\nTerima kasih!";
- window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank");
-}
-
-document.querySelectorAll(".filter-button").forEach(b=>b.addEventListener("click",()=>{
- document.querySelectorAll(".filter-button").forEach(x=>x.classList.remove("active"));
- b.classList.add("active");activeFilter=b.dataset.filter;renderProducts();
-}));
-document.getElementById("search").addEventListener("input",renderProducts);
-document.getElementById("sort").addEventListener("change",renderProducts);
-document.getElementById("clear-cart").addEventListener("click",()=>{
- if(!cart.length){alert("Cart sudah kosong.");return}
- if(confirm("Nak kosongkan semua item dalam cart?")){cart=[];saveAndRender()}
-});
-document.getElementById("order-whatsapp").addEventListener("click",orderWhatsApp);
-
+renderFilters();
 renderProducts();
 renderCart();
 </script>
