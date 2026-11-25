@@ -145,7 +145,7 @@ footer a{color:#e4c89a}
   <button class="filter-button" data-filter="Muffin">Muffin</button>
   <button class="filter-button" data-filter="Hokkaido">Hokkaido Muffin</button>
   <button class="filter-button" data-filter="Cheesecake">Cheesecake</button>
-  <button class="filter-button" data-filter="Cream Puff">Baby Creampuff</button>
+  <button class="filter-button" data-filter="Cream Puff">Mini Creampuff</button>
 </div>
 
 <div class="tools">
@@ -199,21 +199,44 @@ footer a{color:#e4c89a}
 "use strict";
 
 const WHATSAPP_NUMBER = "60163160468";
-const CART_KEY = "kunyahkunyah_cart_v3";
+const CART_KEY = "kunyahkunyah_cart_v4";
 
 const products = [
  {id:"pisang",name:"Kek Pisang",category:"Kek",image:"kek-pisang.JPG",emoji:"🍌",description:"Kek pisang homemade dengan pilihan topping dan cheese.",options:[
  ["Classic",30],["Chocolate",35],["Double Choc. (Extra Choc Drizzle)",38],["2 Benua (Classic + Choc.)",35],["Classic Cheese (Full)",40],["Choc. Cheese (Full)",46],["2 Benua Cheese (Full)",46],["2 Benua Cheese (Half)",44]],topping:true},
+
  {id:"brownies",name:"Brownies 8×8 Inch",category:"Brownies",image:"brownies.JPG",emoji:"🍫",description:"36 pcs setiap kotak. Pilih flavour kegemaran anda.",options:[
  ["Plain",35],["Hazelnut / Biscoff Spread (Can Mix)",44],["Hazelnut Spread + Nuts",50],["Hazelnut Spread + Biscoff Crumb",50],["Biscoff Spread + Nuts",50],["Biscoff Spread + Biscoff Crumb",50],["Cadbury",60],["KitKat",60],["Oreo Crumb",47],["Mix Flavour (4 Flavours)",58]]},
+
  {id:"redvelvet",name:"Brownies Red Velvet Cheese",category:"Brownies",image:"brownies-red-velvet-cheese.JPG",emoji:"❤️",description:"Brownies red velvet dengan cheese. Saiz 8 inch.",options:[["8 inch",62]]},
+
  {id:"batik",name:"Kek Batik Ganache",category:"Kek",image:"kek-batik-ganache.JPG",emoji:"🍫",description:"Kek batik dengan topping ganache coklat.",options:[["8 inch",55],["6 inch",35],["Mini 4 oz",3]]},
+
  {id:"cheesekut",name:"Mini Cheesekut 4 oz",category:"Cheesekut",image:"mini.cheesekut.jpg",emoji:"🧀",description:"Mini cheesekut dalam pilihan Oreo, Biscoff dan Nestum. RM2 sebiji.",flavours:[["Oreo",2],["Biscoff",2],["Nestum",2]]},
+
  {id:"muffinpisang",name:"Muffin Pisang",category:"Muffin",image:"muffin.jpg",emoji:"🧁",description:"Muffin pisang homemade. 50 pcs untuk setiap set.",options:[["Original — 50 pcs",30,50],["Chocolate — 50 pcs",35,50]]},
- {id:"muffinchoc",name:"Muffin Chocolate Moist",category:"Muffin",image:"muffin-chocolate-moist.JPG",emoji:"🧁",description:"Muffin coklat moist yang lembut. 50 pcs setiap set.",options:[["50 pcs",52,50]]},
+
+ {id:"muffinchoc",name:"Mini Chocolate Muffin",category:"Muffin",image:"muffin-chocolate-moist.JPG",emoji:"🧁",description:"Mini Chocolate Muffin. 30 pcs setiap set.",options:[["30 pcs",30,30]]},
+
  {id:"hokkaido",name:"Hokkaido Muffin",category:"Hokkaido",image:"hokkaido-muffin.JPG",emoji:"🧁",description:"Pilih set yang sesuai dengan keperluan anda.",options:[["Set Mini — 7 pcs",12,7],["Set Regular — 16 pcs",25,16],["Set Family — 25 pcs",38,25],["Set Party — 50 pcs",77,50],["Set Celebration — 75 pcs",116,75],["Set Grand — 100 pcs",150,100]]},
- {id:"cheesecake",name:"Cheesecake",category:"Cheesecake",image:"cheesecake.JPG",emoji:"🍰",description:"Cheesecake homemade. Hubungi kami untuk pilihan dan harga.",unpriced:true},
- {id:"creampuff",name:"Baby Creampuff",category:"Cream Puff",image:"creampuff.JPG",emoji:"🍮",description:"Pilih pek dan kuantiti yang anda mahu.",options:[["15 biji",10,15],["25 biji",16,25],["50 biji",31,50]]}
+
+ {id:"minibite",name:"Mini Bite Mini Cheesecake",category:"Cheesecake",image:"cheesecake.JPG",emoji:"🍰",description:"Mini Bite Mini Cheesecake dengan pilihan topping Hazelnut, Biscoff atau Iceberg. 25 pcs setiap set.",options:[
+ ["Hazelnut — 25 pcs",35,25],
+ ["Biscoff — 25 pcs",35,25],
+ ["Iceberg — 25 pcs",35,25]]},
+
+ {id:"burncheesecake",name:"Burn Cheesecake",category:"Cheesecake",image:"cheesecake.JPG",emoji:"🍰",description:"Burn Cheesecake dengan pilihan topping kegemaran anda.",options:[
+ ["Plain",50],
+ ["Hazelnut / Biscoff Spread",55],
+ ["Hazelnut Spread + Strawberry",78],
+ ["Hazelnut / Biscoff Spread + Fruit + Choc. Bar",75],
+ ["Biscoff Spread + Biscuit",58],
+ ["Iceberg Burn Cheesecake",80]]},
+
+ {id:"creampuff",name:"Mini Creampuff",category:"Cream Puff",image:"creampuff.JPG",emoji:"🍮",description:"Mini Creampuff homemade. Pilih kuantiti pek.",options:[
+ ["25 pcs",18,25],
+ ["30 pcs",21,30],
+ ["50 pcs",36,50]]}
 ];
 
 let cart = [];
